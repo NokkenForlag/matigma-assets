@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Potenser og eksponentregler</title>
-  <link rel="stylesheet" href="https://nokkenforlag.github.io/matigma-assets//styles/styles.css"/>
+  <link rel="stylesheet" href="https://nokkenforlag.github.io/matigma-assets/styles/styles.css"/>
   <!-- KaTeX CSS og JS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -39,6 +39,12 @@
     </div>
     
 <canvas id="rive-canvas"></canvas>
+<script type="module">
+  import { createRive } from "https://nokkenforlag.github.io/matigma-assets/scripts/index.mjs";
+
+  // Merk: bruk full, korrekt sti til filen i GitHub Pages
+  createRive("https://nokkenforlag.github.io/matigma-assets/rive/banner_background.riv");
+</script>
 
     <div>
       <p>$$3^2 = 3 \cdot 3 = 9$$</p>
