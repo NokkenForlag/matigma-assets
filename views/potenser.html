@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Potenser og eksponentregler</title>
+  <link rel="stylesheet" href="/styles/styles.css" />
+  <!-- KaTeX CSS og JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <!-- Google Fonts – Manrope Variable Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;600;700&display=swap" rel="stylesheet">
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</head>
+<body>
+  <!-- 📘 Forklaring -->
+<p>
+  En <strong>potens</strong> er en kompakt skrivemåte for gjentatt multiplikasjon av samme tall med seg selv. 
+  I stedet for å skrive lange multiplikasjoner, bruker vi potenser for å gjøre uttrykket enklere.
+</p>
+  <!-- 🧩 Definisjon -->
+  <div class="Math-Block Math-Definition-Block" data-label="Definisjon">
+      <p>$$a^n = \underbrace{a \cdot a \cdot\; \dots \; \cdot a}_{n \text{ faktorer}}$$</p>
+      <p>
+      <br>
+        Her er <strong>$a$</strong> grunntallet, og <strong>$n$</strong> er eksponenten. 
+        Eksponenten forteller hvor mange ganger grunntallet $a$ skal multipliseres med seg selv.
+      </p>
+    </div>
+    
+<canvas id="rive-canvas"></canvas>
+
+    <div>
+      <p>$$3^2 = 3 \cdot 3 = 9$$</p>
+      <p>$$x^4 = x \cdot x \cdot x \cdot x$$</p>
+      <p>$$5^1 = 5$$</p>
+    </div>
+
+
+<!-- 📌 Eksempel -->
+<div class="Math-Block Math-Example-Block" data-label="Eksempel">
+  <p>$$2 \cdot 2 \cdot 2 \cdot 2 = 2^4$$</p>
+  <p>Her er 2 grunntallet, og 4 eksponenten.</p>
+  <br>
+  <p>Flere eksempler:</p>
+  <br>
+  <p>$$5^3 = 5 \cdot 5 \cdot 5 = 125$$</p>
+  <br>
+  <p>$$x^2 = x \cdot x$$</p>
+  <br>
+  <p>$$y^5 = y \cdot y \cdot y \cdot y \cdot y$$</p>
+
+</div>
+
+<p>
+  Definisjonen og eksemplene over er ganske intuitive så lenge $n$ er heltall, men $n$ kan i prinsippet være hva som helst. Vi kommer tilbake til hvordan vi skal tolke potenser der $n$ ikke er et positive heltall senere.
+</p>
+
+<!-- 📐 Grunnregel for potenser -->
+<div class="Math-Block Math-Definition-Block" data-label="Definisjon">
+<p>$$a^n = \underbrace{a \cdot a \cdot\; \dots \; \cdot a}_{n \text{ faktorer}}$$</p>
+</div>
+
+<!-- 📐 Når eksponenten er null -->
+<div class="Math-Block Math-Corollary-Block" data-label="Følgesetning">
+<div class="math-sublabel">Korollar</div>
+<p>$$a^0 = 1 \quad \text{for } a \neq 0$$</p>
+</div>
+
+<!-- 📐 Når eksponenten er 1 -->
+<div class="Math-Block Math-Corollary-Block" data-label="Følgesetning">
+<div class="math-sublabel">Korollar</div>
+<p>$$a^1 = a$$</p>
+</div>
+
+<!-- 📐 Når eksponenten er negativ -->
+<div class="Math-Block Math-Corollary-Block" data-label="Følgesetning">
+<div class="math-sublabel">Korollar</div>
+<p>$$a^{-n} = \frac{1}{a^n} \quad \text{for } a \neq 0$$</p>
+</div>
+
+<!-- 📐 Regneregel for multiplikasjon av potenser -->
+<div class="Math-Block Math-Lemma-Block" data-label="Regel">
+<div class="math-sublabel">Lemma</div>
+<p>$$a^m \cdot a^n = a^{m+n}$$</p>
+</div>
+
+<!-- 📐 Regneregel for divisjon av potenser -->
+<div class="Math-Block Math-Lemma-Block" data-label="Regel">
+<div class="math-sublabel">Lemma</div>
+<p>$$\frac{a^m}{a^n} = a^{m-n} \quad \text{for } a \neq 0$$</p>
+</div>
+
+<!-- 📐 Potens av potens -->
+<div class="Math-Block Math-Lemma-Block" data-label="Regel">
+<div class="math-sublabel">Lemma</div>
+<p>$$(a^m)^n = a^{m \cdot n}$$</p>
+</div>
+
+<!-- 📐 Produkt opphøyd i potens -->
+<div class="Math-Block Math-Lemma-Block" data-label="Regel">
+<div class="math-sublabel">Lemma</div>
+<p>$$(ab)^n = a^n \cdot b^n$$</p>
+</div>
+
+<!-- 📐 Brøk opphøyd i potens -->
+<div class="Math-Block Math-Lemma-Block" data-label="Regel">
+<div class="math-sublabel">Lemma</div>
+<p>$$\left(\frac{a}{b}\right)^n = \frac{a^n}{b^n} \quad \text{for } b \neq 0$$</p>
+</div>
+
+<!-- 🔹 Eksponent lik 1 -->
+<p>Når eksponenten er lik 1, betyr det at grunntallet står alene – altså at det kun er én faktor. Det innebærer ingen gjentatt multiplikasjon, og potensen er derfor lik grunntallet selv.</p> 
+<div class="Math-Block Math-Definition-Block" data-label="Eksponent lik 1">
+  <p>$$a^1 = a$$</p>
+</div>
+
+
+  <p>Eksempler:</p>
+  <p>$$3^1 = 3$$<br>
+     $$9^1 = 9$$<br>
+     $$x^1 = x$$</p>
+</div>
+
+<!-- 🔹 Eksponent lik 0 -->
+<div class="Math-Block Math-Definition-Block" data-label="Eksponent lik 0">
+  <p>Når eksponenten er 0, gjelder følgende regel (for alle grunntall unntatt null):</p>
+  <p>$$\frac{a^n}{a^n} = a^{n-n} = a^0 = 1$$</p>
+  <p>Dette er en direkte konsekvens av at et tall delt på seg selv må bli 1.</p>
+</div>
+
+
+ <!-- 📌 Eksempel -->
+ <div class="Math-Block Math-Example-Block" data-label="Eksempel">
+  <p>$$2^0 = 1$$<br>
+     $$99^0 = 1$$<br>
+     $$x^0 = 1 \quad (\text{for } x \neq 0)$$</p>
+</div>
+
+<!-- 🔹 Spesialtilfellet 0^0 -->
+<div class="Math-Block Math-Note-Block" data-label="Spesialtilfelle: $0^0$">
+  <p>$0^0$ er ubestemt fordi grenseverdien av $f(x)^{g(x)}$ når $f(x) \to 0$ og $g(x) \to 0$ kan variere, avhengig av funksjonene.</p>
+  <p>Det finnes eksempler der grensen blir 0, 1 eller noe annet:</p>
+  <p>$$\lim_{x \to 0^+} x^x = 1$$<br>
+     $$\lim_{x \to 0^+} 0^x = 0$$<br>
+     $$\lim_{x \to 0^+} \left( e^{-1/x} \right)^x = 1$$<br>
+     $$\lim_{x \to 0^+} x^{2x} = 0$$</p>
+</div>
+
+<!-- 🔹 Negative eksponenter -->
+<div class="Math-Block Math-Definition-Block" data-label="Negative eksponenter">
+  <p>En negativ eksponent angir at potensen tilsvarer den inverse verdien av den positive eksponenten.</p>
+  <p>På samme måte som positive eksponenter angir hvor mange ganger vi multipliserer med grunntallet, viser negative eksponenter hvor mange ganger vi deler på det.</p>
+  <p>For eksempel:</p>
+  <p>$$2^3 = 2 \cdot 2 \cdot 2 = 8 \quad \text{mens} \quad 2^{-3} = \frac{1}{2 \cdot 2 \cdot 2} = \frac{1}{8}$$</p>
+  <p>Generelt:</p>
+  <p>$$a^{-n} = \frac{1}{a^n}$$</p>
+  </div>
+
+ <!-- 📌 Eksempel -->
+ <div class="Math-Block Math-Example-Block" data-label="Eksempel">
+  <p>$$2^{-3} = \frac{1}{2^3} = \frac{1}{8}$$<br>
+     $$10^{-2} = \frac{1}{10^2} = \frac{1}{100}$$<br>
+     $$x^{-4} = \frac{1}{x^4}$$</p>
+</div>
+
+<!-- 📐 Teorem: Potensregnereglene -->
+<div class="Math-Block Math-Theorem-Block" data-label="Teorem">
+  <div class="math-sublabel">Teorem</div>
+  <p>Alle potensregnereglene gjelder for reelle grunntall $a, b$ og heltall $m, n$ så lenge nevnerne ikke blir null.</p>
+</div>
+
+<!-- 🧾 Bevisskisse -->
+<div class="Math-Block Math-Proof-Block" data-label="Bevis">
+  <div class="math-sublabel">Bevis</div>
+  <p>Reglene følger fra den definitoriske strukturen til potenser og egenskapene ved multiplikasjon. Eksempel: </p>
+  <p>$$a^m \cdot a^n = \underbrace{a \cdot \dots \cdot a}_{m} \cdot \underbrace{a \cdot \dots \cdot a}_{n} = \underbrace{a \cdot \dots \cdot a}_{m+n} = a^{m+n}$$</p>
+</div>
+
+
+  <script type="module" src="/scripts/index.mjs"></script>
+</body>
+</html>
