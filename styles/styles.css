@@ -1,10 +1,11 @@
 html, body {
   font-family: 'Manrope', sans-serif;
   line-height: 1.6;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  color: var(--text-color, #404040);
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow: auto;
 }
   
   #rive-canvas {
@@ -23,7 +24,7 @@ html, body {
       position: relative;
       border-left: 4px solid var(--border-color, #ccc);
       background-color: var(--bg-color, #f5f5f5);
-      color: var(--text-color, #222);
+      color: var(--text-color, #404040);
     }
   
     .Math-Block::before {
@@ -65,7 +66,7 @@ html, body {
     }
   
     .Math-Definition-Block {
-      --bg-color: #c3f0ff;
+      --bg-color: #E9F0FE;
       --border-color: #2b5d92;
       --label-bg: #2b5d92;
     }
