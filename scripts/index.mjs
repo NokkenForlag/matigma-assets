@@ -35,3 +35,15 @@ export function createRive(riveFilePath, canvasId = "rive-canvas") {
 
   return riveInstance;
 }
+
+// === Iframe auto-height script ===
+function sendHeight() {
+  window.parent.postMessage({
+    type: 'setHeight',
+    height: document.body.scrollHeight
+  }, '*');
+}
+
+// Kjør alltid høydeoppdatering uansett
+window.addEventListener('load', sendHeight);
+window.addEventListener('resize', sendHeight);
