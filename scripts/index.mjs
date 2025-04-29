@@ -48,8 +48,10 @@ function sendHeight() {
     }, '*');
   }
 }
-window.addEventListener('load', sendHeight);
-window.addEventListener('resize', sendHeight);
+window.addEventListener('resize', sendHeight, { passive: true });
+window.addEventListener("resize", () => {
+  riveInstance.resizeDrawingSurfaceToCanvas(window.devicePixelRatio || 1);
+}, { passive: true });
 
 // === KaTeX auto-rendering ===
 function setupKaTeX() {
