@@ -5,6 +5,10 @@ html, body {
   color: var(--text-color, #404040);
   margin: 0;
   padding: 0;
+  overflow: auto;
+}
+
+html.no-scroll, body.no-scroll {
   overflow: hidden;
 }
   

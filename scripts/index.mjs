@@ -41,17 +41,17 @@ export function createRive(riveFilePath, canvasId = "rive-canvas") {
 // === Iframe auto-height script ===
 function sendHeight() {
   if (window.self !== window.top) {
-    // Bare send høyde hvis vi er inni en iframe
+    // Send høyden på dokumentet til den overordnede siden
     window.parent.postMessage({
       type: 'setHeight',
-      height: document.body.scrollHeight
+      height: document.documentElement.scrollHeight
     }, '*');
   }
 }
+
+// Kjør funksjonen når innholdet lastes og ved endringer i størrelse
 window.addEventListener('resize', sendHeight, { passive: true });
-window.addEventListener("resize", () => {
-  riveInstance.resizeDrawingSurfaceToCanvas(window.devicePixelRatio || 1);
-}, { passive: true });
+document.addEventListener('DOMContentLoaded', sendHeight);
 
 // === KaTeX auto-rendering ===
 function setupKaTeX() {
@@ -68,3 +68,13 @@ function setupKaTeX() {
 }
 
 document.addEventListener("DOMContentLoaded", setupKaTeX);
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.self !== window.top) {
+    // Dokumentet er inne i en iframe
+    document.documentElement.classList.add("no-scroll");
+  } else {
+    // Dokumentet er ikke inne i en iframe
+    document.documentElement.classList.remove("no-scroll");
+  }
+});
