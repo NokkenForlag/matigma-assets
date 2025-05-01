@@ -48,9 +48,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const filePath = canvas.getAttribute("data-rive");
     if (!filePath) return;
 
+    // Les visuell størrelse fra CSS
+    const rect = canvas.getBoundingClientRect();
+    const displayWidth = rect.width;
+    const displayHeight = rect.height;
+    const dpr = window.devicePixelRatio || 1;
+
+    // Skaler for skarphet
+    canvas.width = displayWidth * dpr;
+    canvas.height = displayHeight * dpr;
+    canvas.style.width = `${displayWidth}px`;
+    canvas.style.height = `${displayHeight}px`;
+
     const fullUrl = baseUrl + filePath;
 
-    new Rive.Rive({
+    const riveInstance = new Rive.Rive({
       src: fullUrl,
       canvas: canvas,
       autoplay: true,
@@ -59,7 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
         fit: Rive.Fit.Contain,
         alignment: Rive.Alignment.Center,
       }),
-      onLoad: () => {
+      onLoad: function () {
+        this.resizeDrawingSurfaceToCanvas(dpr);
         console.log("✅ Lastet:", filePath);
       },
       onError: (err) => {
