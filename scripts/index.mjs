@@ -12,7 +12,7 @@ export function createRive(riveFilePath, canvasId = "rive-canvas") {
   }
 
   const layout = new Rive.Layout({
-    fit: Rive.Fit.Cover,
+    fit: Rive.Fit.Contain,
     alignment: Rive.Alignment.Center,
   });
 
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
       autoplay: true,
       stateMachines: ["State Machine 1"],
       layout: new Rive.Layout({
-        fit: Rive.Fit.Cover,
+        fit: Rive.Fit.Contain,
         alignment: Rive.Alignment.Center,
       }),
       onLoad: () => {
