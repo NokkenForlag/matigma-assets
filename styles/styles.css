@@ -26,7 +26,7 @@ html.no-scroll, body.no-scroll {
       margin: 1.5rem 0;
       font-size: 1rem;
       position: relative;
-      border-left: 4px solid var(--border-color, #ccc);
+      /* border-left: 4px solid var(--border-color, #ccc); */
       background-color: var(--bg-color, #f5f5f5);
       color: var(--text-color, #404040);
     }
@@ -37,7 +37,7 @@ html.no-scroll, body.no-scroll {
       font-weight: bold;
       color: #ffffff;
       background-color: var(--label-bg, #333);
-      padding: 4px 10px;
+      padding: 4px 8px;
       border-radius: 4px;
       position: absolute;
       top: 1rem;
