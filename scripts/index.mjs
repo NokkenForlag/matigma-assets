@@ -38,6 +38,37 @@ export function createRive(riveFilePath, canvasId = "rive-canvas") {
   return riveInstance;
 }
 
+// === Dynamisk initialisering av flere Rive-ikoner fra CMS ===
+const baseUrl = "https://nokkenforlag.github.io/matigma-assets/";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const riveCanvases = document.querySelectorAll("canvas[data-rive]");
+
+  riveCanvases.forEach((canvas) => {
+    const filePath = canvas.getAttribute("data-rive");
+    if (!filePath) return;
+
+    const fullUrl = baseUrl + filePath;
+
+    new Rive.Rive({
+      src: fullUrl,
+      canvas: canvas,
+      autoplay: true,
+      stateMachines: ["State Machine 1"],
+      layout: new Rive.Layout({
+        fit: Rive.Fit.Contain,
+        alignment: Rive.Alignment.Center,
+      }),
+      onLoad: () => {
+        console.log("✅ Lastet:", filePath);
+      },
+      onError: (err) => {
+        console.error("🚨 Feil:", err);
+      }
+    });
+  });
+});
+
 // === Iframe auto-height script ===
 function sendHeight() {
   if (window.self !== window.top) {
