@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
       autoplay: true,
       stateMachines: ["State Machine 1"],
       layout: new Rive.Layout({
-        fit: Rive.Fit.Contain,
+        fit: Rive.Fit.Cover,
         alignment: Rive.Alignment.Center,
       }),
       onLoad: () => {
