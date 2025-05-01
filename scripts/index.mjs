@@ -71,8 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
         fit: Rive.Fit.Contain,
         alignment: Rive.Alignment.Center,
       }),
-      onLoad: function () {
-        this.resizeDrawingSurfaceToCanvas(dpr);
+      onLoad: () => {
+        riveInstance.resizeDrawingSurfaceToCanvas(dpr);
         console.log("✅ Lastet:", filePath);
       },
       onError: (err) => {
