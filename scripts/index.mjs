@@ -171,6 +171,7 @@ function setupDropdowns() {
         icon.style.transform = "rotate(0deg)";
         localStorage.setItem(storageKey, "false");
       } else {
+        content.style.visibility = "visible";
         content.style.maxHeight = content.scrollHeight + "px";
         content.style.opacity = "1";
         icon.style.transform = "rotate(180deg)";
