@@ -150,8 +150,9 @@ function setupDropdowns() {
 
     const storageKey = `dropdown-open-${index}`;
 
-    // Last lagret tilstand
-    const isOpen = localStorage.getItem(storageKey) === "true";
+    // Last lagret tilstand, åpen som default hvis ikke lagret
+    const stored = localStorage.getItem(storageKey);
+    const isOpen = stored === null ? true : stored === "true";
     if (isOpen) {
       wrapper.classList.add("open");
     }
