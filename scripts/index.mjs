@@ -44,9 +44,21 @@ const baseUrl = "https://nokkenforlag.github.io/matigma-assets/";
 document.addEventListener("DOMContentLoaded", () => {
   const riveCanvases = document.querySelectorAll("canvas[data-rive]");
 
+  if (!riveCanvases.length) {
+    console.info("🎨 Ingen Rive-canvas funnet på denne siden.");
+  }
+
   riveCanvases.forEach((canvas) => {
+    if (!canvas) {
+      console.warn("⛔️ Canvas-element mangler.");
+      return;
+    }
+
     const filePath = canvas.getAttribute("data-rive");
-    if (!filePath) return;
+    if (!filePath) {
+      console.warn("⛔️ Mangel på data-rive-attributt.");
+      return;
+    }
 
     // Les visuell størrelse fra CSS
     const rect = canvas.getBoundingClientRect();
