@@ -170,6 +170,10 @@ function setupDropdowns() {
         content.style.opacity = "0";
         icon.style.transform = "rotate(0deg)";
         localStorage.setItem(storageKey, "false");
+        // Skjul visuelt etter overgang er ferdig
+        setTimeout(() => {
+          content.style.visibility = "hidden";
+        }, 300); // Matcher overgangsvarighet i CSS
       } else {
         content.style.visibility = "visible";
         content.style.maxHeight = content.scrollHeight + "px";
