@@ -153,12 +153,11 @@ function setupDropdowns() {
     // Last lagret tilstand
     const isOpen = localStorage.getItem(storageKey) === "true";
     if (isOpen) {
-      // Midlertidig fjern overgang
+      content.style.visibility = "visible";
       content.style.transition = "none";
       content.style.maxHeight = content.scrollHeight + "px";
       content.style.opacity = "1";
       icon.style.transform = "rotate(180deg)";
-      // Aktiver overgang igjen etter én frame
       requestAnimationFrame(() => {
         content.style.transition = "";
       });
