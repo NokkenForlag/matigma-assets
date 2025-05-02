@@ -1,0 +1,79 @@
+<div id="persistent-dropdown-1" style="margin-bottom: 1rem;">
+    <button id="dropdown-toggle-1"
+      style="all: unset; cursor: pointer; display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 12px; background: #eee; border-radius: 8px; font-weight: bold;">
+      <span>Welcome 1</span>
+      <span id="dropdown-icon-1" style="transition: transform 0.3s;">▼</span>
+    </button>
+    <div id="dropdown-content-1"
+      style="overflow: hidden; max-height: 0; opacity: 0; transition: max-height 0.4s ease, opacity 0.3s ease;">
+      <div id="webflow-slot-1" style="padding: 12px; background: #f9f9f9; border-radius: 0 0 8px 8px;">
+        <!-- Webflow content can be dropped here in Designer -->
+      </div>
+    </div>
+</div>
+<div id="persistent-dropdown-2" style="margin-bottom: 1rem;">
+    <button id="dropdown-toggle-2"
+      style="all: unset; cursor: pointer; display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 12px; background: #eee; border-radius: 8px; font-weight: bold;">
+      <span>Welcome 2</span>
+      <span id="dropdown-icon-2" style="transition: transform 0.3s;">▼</span>
+    </button>
+    <div id="dropdown-content-2"
+      style="overflow: hidden; max-height: 0; opacity: 0; transition: max-height 0.4s ease, opacity 0.3s ease;">
+      <div id="webflow-slot-2" style="padding: 12px; background: #f9f9f9; border-radius: 0 0 8px 8px;">
+        <!-- Webflow content can be dropped here in Designer -->
+      </div>
+    </div>
+</div>
+<div id="persistent-dropdown-3" style="margin-bottom: 1rem;">
+    <button id="dropdown-toggle-3"
+      style="all: unset; cursor: pointer; display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 12px; background: #eee; border-radius: 8px; font-weight: bold;">
+      <span>Welcome 3</span>
+      <span id="dropdown-icon-3" style="transition: transform 0.3s;">▼</span>
+    </button>
+    <div id="dropdown-content-3"
+      style="overflow: hidden; max-height: 0; opacity: 0; transition: max-height 0.4s ease, opacity 0.3s ease;">
+      <div id="webflow-slot-3" style="padding: 12px; background: #f9f9f9; border-radius: 0 0 8px 8px;">
+        <!-- Webflow content can be dropped here in Designer -->
+      </div>
+    </div>
+</div>
+  
+<script>
+  (function () {
+    // There are 3 dropdowns, numbered 1-3
+    [1, 2, 3].forEach(function (idx) {
+      const toggle = document.getElementById("dropdown-toggle-" + idx);
+      const content = document.getElementById("dropdown-content-" + idx);
+      const icon = document.getElementById("dropdown-icon-" + idx);
+      const storageKey = "dropdown-open-" + idx;
+
+      function openDropdown() {
+        content.style.maxHeight = "300px";
+        content.style.opacity = "1";
+        icon.style.transform = "rotate(180deg)";
+      }
+
+      function closeDropdown() {
+        content.style.maxHeight = "0";
+        content.style.opacity = "0";
+        icon.style.transform = "rotate(0deg)";
+      }
+
+      // Initial state
+      const isOpen = localStorage.getItem(storageKey) === "true";
+      if (isOpen) openDropdown();
+
+      // Toggle on click
+      toggle.addEventListener("click", function () {
+        const currentlyOpen = content.style.maxHeight !== "0px" && content.style.maxHeight !== "";
+        if (currentlyOpen) {
+          closeDropdown();
+          localStorage.setItem(storageKey, "false");
+        } else {
+          openDropdown();
+          localStorage.setItem(storageKey, "true");
+        }
+      });
+    });
+  })();
+</script>
