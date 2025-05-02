@@ -186,3 +186,8 @@ function setupDropdowns() {
 }
 
 document.addEventListener("DOMContentLoaded", setupDropdowns);
+
+// Add js-ready class after all DOMContentLoaded scripts
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("js-ready");
+});
