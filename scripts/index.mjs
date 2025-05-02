@@ -130,14 +130,26 @@ function setupDropdowns() {
     const toggle = wrapper.querySelector(".ui-dropdown-flex-div");
     const content = wrapper.querySelector(".ui-dropdown-content");
     const icon = wrapper.querySelector(".ui-dropdown-button-icon");
+
+    if (!toggle || !content || !icon) {
+      console.warn(`⛔️ Dropdown-innhold mangler i wrapper #${index}`);
+      return;
+    }
+
     const storageKey = `dropdown-open-${index}`;
 
     // Last lagret tilstand
     const isOpen = localStorage.getItem(storageKey) === "true";
     if (isOpen) {
+      // Midlertidig fjern overgang
+      content.style.transition = "none";
       content.style.maxHeight = content.scrollHeight + "px";
       content.style.opacity = "1";
       icon.style.transform = "rotate(180deg)";
+      // Aktiver overgang igjen etter én frame
+      requestAnimationFrame(() => {
+        content.style.transition = "";
+      });
     }
 
     toggle.addEventListener("click", () => {
