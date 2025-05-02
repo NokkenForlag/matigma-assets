@@ -185,9 +185,12 @@ function setupDropdowns() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", setupDropdowns);
-
-// Add js-ready class after all DOMContentLoaded scripts
+// Add js-ready class after all DOMContentLoaded scripts and setupDropdowns after one animation frame
 document.addEventListener("DOMContentLoaded", () => {
-  document.body.classList.add("js-ready");
+  requestAnimationFrame(() => {
+    setupDropdowns();
+    requestAnimationFrame(() => {
+      document.body.classList.add("js-ready");
+    });
+  });
 });
