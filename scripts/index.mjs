@@ -124,18 +124,18 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 // === Dropdown med localStorage-støtte ===
 function setupDropdowns() {
-  const dropdowns = document.querySelectorAll(".UI\\ Dropdown\\ Wrapper");
+  const dropdowns = document.querySelectorAll(".ui-dropdown-wrapper");
 
   dropdowns.forEach((wrapper, index) => {
-    const toggle = wrapper.querySelector(".UI\\ Dropdown\\ Flex\\ Div");
-    const content = wrapper.querySelector(".UI\\ Dropdown\\ Content");
-    const icon = wrapper.querySelector(".UI\\ Dropdown\\ Button\\ Icon");
+    const toggle = wrapper.querySelector(".ui-dropdown-flex-div");
+    const content = wrapper.querySelector(".ui-dropdown-content");
+    const icon = wrapper.querySelector(".ui-dropdown-button-icon");
     const storageKey = `dropdown-open-${index}`;
 
     // Last lagret tilstand
     const isOpen = localStorage.getItem(storageKey) === "true";
     if (isOpen) {
-      content.style.maxHeight = "500px";
+      content.style.maxHeight = content.scrollHeight + "px";
       content.style.opacity = "1";
       icon.style.transform = "rotate(180deg)";
     }
@@ -148,7 +148,7 @@ function setupDropdowns() {
         icon.style.transform = "rotate(0deg)";
         localStorage.setItem(storageKey, "false");
       } else {
-        content.style.maxHeight = "500px";
+        content.style.maxHeight = content.scrollHeight + "px";
         content.style.opacity = "1";
         icon.style.transform = "rotate(180deg)";
         localStorage.setItem(storageKey, "true");
