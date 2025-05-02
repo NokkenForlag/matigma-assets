@@ -153,32 +153,16 @@ function setupDropdowns() {
     // Last lagret tilstand
     const isOpen = localStorage.getItem(storageKey) === "true";
     if (isOpen) {
-      content.style.visibility = "visible";
-      content.style.transition = "none";
-      content.style.maxHeight = content.scrollHeight + "px";
-      content.style.opacity = "1";
-      icon.style.transform = "rotate(180deg)";
-      requestAnimationFrame(() => {
-        content.style.transition = "";
-      });
+      wrapper.classList.add("open");
     }
 
     toggle.addEventListener("click", () => {
-      const currentlyOpen = content.style.maxHeight && content.style.maxHeight !== "0px";
+      const currentlyOpen = wrapper.classList.contains("open");
       if (currentlyOpen) {
-        content.style.maxHeight = "0";
-        content.style.opacity = "0";
-        icon.style.transform = "rotate(0deg)";
+        wrapper.classList.remove("open");
         localStorage.setItem(storageKey, "false");
-        // Skjul visuelt etter overgang er ferdig
-        setTimeout(() => {
-          content.style.visibility = "hidden";
-        }, 300); // Matcher overgangsvarighet i CSS
       } else {
-        content.style.visibility = "visible";
-        content.style.maxHeight = content.scrollHeight + "px";
-        content.style.opacity = "1";
-        icon.style.transform = "rotate(180deg)";
+        wrapper.classList.add("open");
         localStorage.setItem(storageKey, "true");
       }
     });
