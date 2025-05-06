@@ -200,4 +200,21 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     console.log("✅ .ui-menu-toggle-button funnet");
   }
+  function setupSidebarCloseOnOutsideClick() {
+    document.addEventListener("click", (event) => {
+      const isSidebarOpen = document.body.classList.contains("sidebar-visible");
+      const sidebar = document.querySelector(".ui-sidebar-wrapper");
+      const toggleButton = document.querySelector(".ui-menu-toggle-button");
+
+      if (
+        isSidebarOpen &&
+        !sidebar.contains(event.target) &&
+        !toggleButton.contains(event.target)
+      ) {
+        document.body.classList.remove("sidebar-visible");
+      }
+    });
+  }
+
+  setupSidebarCloseOnOutsideClick();
 });
