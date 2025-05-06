@@ -179,3 +179,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+function setupSidebarToggle() {
+  const toggleButton = document.querySelector(".ui-menu-toggle-button");
+  const sidebar = document.querySelector(".ui-sidebar-wrapper");
+
+  if (!toggleButton || !sidebar) return;
+
+  toggleButton.addEventListener("click", () => {
+    document.body.classList.toggle("sidebar-visible");
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  setupSidebarToggle();
+});
