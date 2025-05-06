@@ -193,4 +193,11 @@ function setupSidebarToggle() {
 
 document.addEventListener("DOMContentLoaded", () => {
   setupSidebarToggle();
+  console.log("🟢 setupSidebarToggle kjører");
+  const testButton = document.querySelector(".ui-menu-toggle-button");
+  if (!testButton) {
+    console.warn("❌ .ui-menu-toggle-button ikke funnet i DOM");
+  } else {
+    console.log("✅ .ui-menu-toggle-button funnet");
+  }
 });
