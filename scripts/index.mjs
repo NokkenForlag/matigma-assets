@@ -156,6 +156,10 @@ function setupDropdowns() {
     if (isOpen) {
       wrapper.classList.add("open");
       content.style.maxHeight = content.scrollHeight + "px";
+      wrapper.classList.add("instant");
+      requestAnimationFrame(() => {
+        wrapper.classList.remove("instant");
+      });
     }
 
     toggle.addEventListener("click", () => {
@@ -202,7 +206,16 @@ function setupSidebarToggle() {
   if (!toggleButton || !sidebar) return;
 
   toggleButton.addEventListener("click", () => {
-    document.body.classList.toggle("sidebar-visible");
+    const isNowOpen = !document.body.classList.contains("sidebar-visible");
+    if (isNowOpen) {
+      document.body.classList.add("sidebar-visible");
+      document.body.classList.add("instant");
+      requestAnimationFrame(() => {
+        document.body.classList.remove("instant");
+      });
+    } else {
+      document.body.classList.remove("sidebar-visible");
+    }
   });
 }
 
@@ -232,4 +245,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   setupSidebarCloseOnOutsideClick();
+
+  // If sidebar is already open on load, disable transition once
+  if (document.body.classList.contains("sidebar-visible")) {
+    document.body.classList.add("instant");
+    requestAnimationFrame(() => {
+      document.body.classList.remove("instant");
+    });
+  }
 });
