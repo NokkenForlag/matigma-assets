@@ -1,3 +1,14 @@
+// === Pre-initialize dropdowns early to avoid layout shift ===
+document.querySelectorAll(".ui-dropdown-wrapper").forEach((wrapper, index) => {
+  const stored = localStorage.getItem(`dropdown-open-${index}`);
+  const isOpen = stored === null ? true : stored === "true";
+  const content = wrapper.querySelector(".ui-dropdown-content");
+
+  if (isOpen && content) {
+    wrapper.classList.add("open");
+    content.style.maxHeight = content.scrollHeight + "px";
+  }
+});
 // scripts/index.mjs
 
 import Rive from "https://cdn.jsdelivr.net/npm/@rive-app/canvas@2.7.1/+esm";
@@ -153,10 +164,6 @@ function setupDropdowns() {
     // Last lagret tilstand, åpen som default hvis ikke lagret
     const stored = localStorage.getItem(storageKey);
     const isOpen = stored === null ? true : stored === "true";
-    if (isOpen) {
-      wrapper.classList.add("open");
-      content.style.maxHeight = content.scrollHeight + "px";
-    }
 
     toggle.addEventListener("click", () => {
       const currentlyOpen = wrapper.classList.contains("open");
