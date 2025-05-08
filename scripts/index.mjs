@@ -167,6 +167,19 @@ function setupDropdowns() {
         content.style.maxHeight = content.scrollHeight + "px";
         content.style.opacity = "1";
         localStorage.setItem(storageKey, "true");
+
+        const observer = new MutationObserver(() => {
+          content.style.maxHeight = content.scrollHeight + "px";
+        });
+
+        observer.observe(content, {
+          childList: true,
+          subtree: true,
+        });
+
+        setTimeout(() => {
+          observer.disconnect();
+        }, 500);
       }
     });
   });
