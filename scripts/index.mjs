@@ -164,9 +164,10 @@ function setupDropdowns() {
         localStorage.setItem(storageKey, "false");
       } else {
         wrapper.classList.add("open");
-        content.style.maxHeight = content.scrollHeight + "px";
-        content.style.opacity = "1";
-        localStorage.setItem(storageKey, "true");
+        requestAnimationFrame(() => {
+          content.style.maxHeight = content.scrollHeight + "px";
+          content.style.opacity = "1";
+        });
 
         const observer = new MutationObserver(() => {
           content.style.maxHeight = content.scrollHeight + "px";
