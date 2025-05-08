@@ -171,6 +171,18 @@ function setupDropdowns() {
       }
     });
   });
+
+  // Update maxHeight of open dropdowns on window resize
+  window.addEventListener("resize", () => {
+    dropdowns.forEach((wrapper) => {
+      if (wrapper.classList.contains("open")) {
+        const content = wrapper.querySelector(".ui-dropdown-content");
+        if (content) {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      }
+    });
+  });
 }
 
 // Add js-ready class after all DOMContentLoaded scripts and setupDropdowns after one animation frame
