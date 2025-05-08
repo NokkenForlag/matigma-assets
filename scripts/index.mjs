@@ -156,10 +156,6 @@ function setupDropdowns() {
     if (isOpen) {
       wrapper.classList.add("open");
       content.style.maxHeight = content.scrollHeight + "px";
-      wrapper.classList.add("instant");
-      requestAnimationFrame(() => {
-        wrapper.classList.remove("instant");
-      });
     }
 
     toggle.addEventListener("click", () => {
@@ -246,8 +242,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setupSidebarCloseOnOutsideClick();
 
-  // If sidebar is already open on load, disable transition once
-  if (document.body.classList.contains("sidebar-visible")) {
+  // If sidebar is already open on load, disable transition once, but only on mobile screens
+  if (
+    document.body.classList.contains("sidebar-visible") &&
+    window.matchMedia("(max-width: 991px)").matches
+  ) {
     document.body.classList.add("instant");
     requestAnimationFrame(() => {
       document.body.classList.remove("instant");
