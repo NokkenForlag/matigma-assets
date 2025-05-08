@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Style test</title>
+  <link rel="stylesheet" href="element_styles.css" />
+  <style>
+    .ui-menu-toggle-button {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      background: #222;
+      color: white;
+      padding: 0.5rem 1rem;
+      z-index: 2000;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="js-ready sidebar-visible">
+
+  <div class="ui-menu-toggle-button">☰ Meny</div>
+
+  <div class="ui-body-content-wrapper">
+    <div class="ui-sidebar-wrapper">
+      <p>Sidebaren din</p>
+    </div>
+    <div class="ui-main-content-wrapper">
+      <p>Hovedinnhold</p>
+    </div>
+  </div>
+
+  <div class="ui-dropdown-wrapper open">
+    <div class="ui-dropdown-button">
+      <span class="ui-dropdown-button-icon">▶</span> Dropdown
+    </div>
+    <div class="ui-dropdown-content">
+      <p>Dropdown-innhold</p>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector('.ui-menu-toggle-button')?.addEventListener('click', () => {
+      document.body.classList.toggle('sidebar-visible');
+    });
+  </script>
+
+</body>
+</html>

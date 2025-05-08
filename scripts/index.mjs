@@ -155,15 +155,18 @@ function setupDropdowns() {
     const isOpen = stored === null ? true : stored === "true";
     if (isOpen) {
       wrapper.classList.add("open");
+      content.style.maxHeight = content.scrollHeight + "px";
     }
 
     toggle.addEventListener("click", () => {
       const currentlyOpen = wrapper.classList.contains("open");
       if (currentlyOpen) {
         wrapper.classList.remove("open");
+        content.style.maxHeight = "0px";
         localStorage.setItem(storageKey, "false");
       } else {
         wrapper.classList.add("open");
+        content.style.maxHeight = content.scrollHeight + "px";
         localStorage.setItem(storageKey, "true");
       }
     });

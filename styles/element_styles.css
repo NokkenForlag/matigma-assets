@@ -17,11 +17,7 @@
 
   .ui-dropdown-wrapper.open .ui-dropdown-content {
     visibility: visible;
-    max-height: 1000px;
     opacity: 1;
-    transition:
-      max-height 0.2s ease,
-      opacity 0.2s ease;
   }
 
   .ui-dropdown-button {
