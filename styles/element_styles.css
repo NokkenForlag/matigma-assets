@@ -78,3 +78,7 @@
     }
 
 }
+
+body.instant .ui-dropdown-content {
+  transition: none !important;
+}

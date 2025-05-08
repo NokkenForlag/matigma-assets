@@ -201,7 +201,9 @@ function setupDropdowns() {
 
 // Add js-ready class after all DOMContentLoaded scripts and setupDropdowns after one animation frame
 document.addEventListener("DOMContentLoaded", () => {
-  // Pre-initialize dropdowns AFTER DOM is ready
+  // Disable transition during initial open state load
+  document.body.classList.add("instant");
+
   document.querySelectorAll(".ui-dropdown-wrapper").forEach((wrapper, index) => {
     const stored = localStorage.getItem(`dropdown-open-${index}`);
     const isOpen = stored === null ? true : stored === "true";
@@ -212,6 +214,10 @@ document.addEventListener("DOMContentLoaded", () => {
       content.style.maxHeight = content.scrollHeight + "px";
       content.style.opacity = "1";
     }
+  });
+
+  requestAnimationFrame(() => {
+    document.body.classList.remove("instant");
   });
 
   requestAnimationFrame(() => {
