@@ -159,25 +159,25 @@ function setupDropdowns() {
       const currentlyOpen = wrapper.classList.contains("open");
       if (currentlyOpen) {
         wrapper.classList.remove("open");
-        content.style.transform = "scaleY(0)";
+        content.style.maxHeight = "0px";
         content.style.opacity = "0";
         localStorage.setItem(storageKey, "false");
       } else {
         wrapper.classList.add("open");
-        content.style.transform = "scaleY(1)";
+        content.style.maxHeight = content.scrollHeight + "px";
         content.style.opacity = "1";
         localStorage.setItem(storageKey, "true");
       }
     });
   });
 
-  // Update transform and opacity of open dropdowns on window resize
+  // Update maxHeight and opacity of open dropdowns on window resize
   window.addEventListener("resize", () => {
     dropdowns.forEach((wrapper) => {
       if (wrapper.classList.contains("open")) {
         const content = wrapper.querySelector(".ui-dropdown-content");
         if (content) {
-          content.style.transform = "scaleY(1)";
+          content.style.maxHeight = content.scrollHeight + "px";
           content.style.opacity = "1";
         }
       }
@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (isOpen && content) {
       wrapper.classList.add("open");
-      content.style.transform = "scaleY(1)";
+      content.style.maxHeight = content.scrollHeight + "px";
       content.style.opacity = "1";
     }
   });
@@ -271,31 +271,3 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("load", () => {
   document.documentElement.classList.add("loaded");
 });
-
-/* CSS changes for dropdown transitions and html opacity */
-const style = document.createElement('style');
-style.textContent = `
-.ui-dropdown-content {
-  transform: scaleY(0);
-  transform-origin: top;
-  opacity: 0;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-  overflow: hidden;
-  height: auto;
-}
-
-.ui-dropdown-wrapper.open .ui-dropdown-content {
-  transform: scaleY(1);
-  opacity: 1;
-}
-
-html {
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-html.loaded {
-  opacity: 1;
-}
-`;
-document.head.appendChild(style);
