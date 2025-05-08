@@ -1,14 +1,13 @@
 // scripts/index.mjs
-// scripts/index.mjs
 
 import Rive from "https://cdn.jsdelivr.net/npm/@rive-app/canvas@2.7.1/+esm";
 
-// === Rive-funksjon ===
+// === Rive function ===
 export function createRive(riveFilePath, canvasId = "rive-canvas") {
   const riveCanvas = document.getElementById(canvasId);
 
   if (!riveCanvas) {
-    console.warn(`⛔️ Fant ikke canvas med id "${canvasId}"`);
+    console.warn(`⛔️ Could not find canvas with id "${canvasId}"`);
     return;
   }
 
@@ -25,10 +24,10 @@ export function createRive(riveFilePath, canvasId = "rive-canvas") {
     layout,
     onLoad: () => {
       riveInstance.resizeDrawingSurfaceToCanvas(window.devicePixelRatio || 1);
-      console.log("✅ Rive-fil lastet:", riveFilePath);
+      console.log("✅ Rive file loaded:", riveFilePath);
     },
     onError: (err) => {
-      console.error("🚨 Rive-feil:", err);
+      console.error("🚨 Rive error:", err);
     }
   });
 
@@ -39,35 +38,52 @@ export function createRive(riveFilePath, canvasId = "rive-canvas") {
   return riveInstance;
 }
 
-// === Dynamisk initialisering av flere Rive-ikoner fra CMS ===
+// === Utility for localStorage access ===
+const canUseStorage = (() => {
+  try {
+    const testKey = "__storage_test__";
+    localStorage.setItem(testKey, testKey);
+    localStorage.removeItem(testKey);
+    return true;
+  } catch {
+    return false;
+  }
+})();
+
+function updateDropdownHeight(content) {
+  content.style.maxHeight = content.scrollHeight + "px";
+  content.style.opacity = "1";
+}
+
+// === Dynamic initialization of multiple Rive icons from CMS ===
 const baseUrl = "https://nokkenforlag.github.io/matigma-assets/";
 
-document.addEventListener("DOMContentLoaded", () => {
+function setupRiveCanvases() {
   const riveCanvases = document.querySelectorAll("canvas[data-rive]");
 
   if (!riveCanvases.length) {
-    console.info("🎨 Ingen Rive-canvas funnet på denne siden.");
+    console.info("🎨 No Rive canvas found on this page.");
   }
 
   riveCanvases.forEach((canvas) => {
     if (!canvas) {
-      console.warn("⛔️ Canvas-element mangler.");
+      console.warn("⛔️ Canvas element missing.");
       return;
     }
 
     const filePath = canvas.getAttribute("data-rive");
     if (!filePath) {
-      console.warn("⛔️ Mangel på data-rive-attributt.");
+      console.warn("⛔️ Missing data-rive attribute.");
       return;
     }
 
-    // Les visuell størrelse fra CSS
+    // Read visual size from CSS
     const rect = canvas.getBoundingClientRect();
     const displayWidth = rect.width;
     const displayHeight = rect.height;
     const dpr = window.devicePixelRatio || 1;
 
-    // Skaler for skarphet
+    // Scale for sharpness
     canvas.width = displayWidth * dpr;
     canvas.height = displayHeight * dpr;
     canvas.style.width = `${displayWidth}px`;
@@ -86,29 +102,25 @@ document.addEventListener("DOMContentLoaded", () => {
       }),
       onLoad: () => {
         riveInstance.resizeDrawingSurfaceToCanvas(dpr);
-        console.log("✅ Lastet:", filePath);
+        console.log("✅ Loaded:", filePath);
       },
       onError: (err) => {
-        console.error("🚨 Feil:", err);
+        console.error("🚨 Error:", err);
       }
     });
   });
-});
+}
 
 // === Iframe auto-height script ===
 function sendHeight() {
   if (window.self !== window.top) {
-    // Send høyden på dokumentet til den overordnede siden
+    // Send the height of the document to the parent page
     window.parent.postMessage({
       type: 'setHeight',
       height: document.documentElement.scrollHeight
     }, '*');
   }
 }
-
-// Kjør funksjonen når innholdet lastes og ved endringer i størrelse
-window.addEventListener('resize', sendHeight, { passive: true });
-document.addEventListener('DOMContentLoaded', sendHeight);
 
 // === KaTeX auto-rendering ===
 function setupKaTeX() {
@@ -120,22 +132,27 @@ function setupKaTeX() {
       ]
     });
   } else {
-    console.warn("⚠️ renderMathInElement er ikke definert – sjekk at KaTeX er lastet inn.");
+    console.warn("⚠️ renderMathInElement is not defined – check that KaTeX is loaded.");
   }
 }
 
-document.addEventListener("DOMContentLoaded", setupKaTeX);
+// === Dropdown with localStorage support ===
+function preloadDropdownState() {
+  document.body.classList.add("instant");
+  document.querySelectorAll(".ui-dropdown-wrapper").forEach((wrapper, index) => {
+    const stored = canUseStorage ? localStorage.getItem(`dropdown-open-${index}`) : null;
+    const isOpen = stored === null ? true : stored === "true";
+    const content = wrapper.querySelector(".ui-dropdown-content");
+    if (isOpen && content) {
+      wrapper.classList.add("open");
+      updateDropdownHeight(content);
+    }
+  });
+  requestAnimationFrame(() => {
+    document.body.classList.remove("instant");
+  });
+}
 
-document.addEventListener("DOMContentLoaded", () => {
-  if (window.self !== window.top) {
-    // Dokumentet er inne i en iframe
-    document.documentElement.classList.add("no-scroll");
-  } else {
-    // Dokumentet er ikke inne i en iframe
-    document.documentElement.classList.remove("no-scroll");
-  }
-});
-// === Dropdown med localStorage-støtte ===
 function setupDropdowns() {
   const dropdowns = document.querySelectorAll(".ui-dropdown-wrapper");
 
@@ -145,14 +162,14 @@ function setupDropdowns() {
     const icon = wrapper.querySelector(".ui-dropdown-button-icon");
 
     if (!toggle || !content || !icon) {
-      console.warn(`⛔️ Dropdown-innhold mangler i wrapper #${index}`);
+      console.warn(`⛔️ Dropdown content missing in wrapper #${index}`);
       return;
     }
 
     const storageKey = `dropdown-open-${index}`;
 
-    // Last lagret tilstand, åpen som default hvis ikke lagret
-    const stored = localStorage.getItem(storageKey);
+    // Load stored state, open by default if not stored
+    const stored = canUseStorage ? localStorage.getItem(storageKey) : null;
     const isOpen = stored === null ? true : stored === "true";
 
     toggle.addEventListener("click", () => {
@@ -161,16 +178,17 @@ function setupDropdowns() {
         wrapper.classList.remove("open");
         content.style.maxHeight = "0px";
         content.style.opacity = "0";
-        localStorage.setItem(storageKey, "false");
+        if (canUseStorage) {
+          localStorage.setItem(storageKey, "false");
+        }
       } else {
         wrapper.classList.add("open");
         requestAnimationFrame(() => {
-          content.style.maxHeight = content.scrollHeight + "px";
-          content.style.opacity = "1";
+          updateDropdownHeight(content);
         });
 
         const observer = new MutationObserver(() => {
-          content.style.maxHeight = content.scrollHeight + "px";
+          updateDropdownHeight(content);
         });
 
         observer.observe(content, {
@@ -181,6 +199,9 @@ function setupDropdowns() {
         setTimeout(() => {
           observer.disconnect();
         }, 500);
+        if (canUseStorage) {
+          localStorage.setItem(storageKey, "true");
+        }
       }
     });
   });
@@ -191,42 +212,12 @@ function setupDropdowns() {
       if (wrapper.classList.contains("open")) {
         const content = wrapper.querySelector(".ui-dropdown-content");
         if (content) {
-          content.style.maxHeight = content.scrollHeight + "px";
-          content.style.opacity = "1";
+          updateDropdownHeight(content);
         }
       }
     });
   });
 }
-
-// Add js-ready class after all DOMContentLoaded scripts and setupDropdowns after one animation frame
-document.addEventListener("DOMContentLoaded", () => {
-  // Disable transition during initial open state load
-  document.body.classList.add("instant");
-
-  document.querySelectorAll(".ui-dropdown-wrapper").forEach((wrapper, index) => {
-    const stored = localStorage.getItem(`dropdown-open-${index}`);
-    const isOpen = stored === null ? true : stored === "true";
-    const content = wrapper.querySelector(".ui-dropdown-content");
-
-    if (isOpen && content) {
-      wrapper.classList.add("open");
-      content.style.maxHeight = content.scrollHeight + "px";
-      content.style.opacity = "1";
-    }
-  });
-
-  requestAnimationFrame(() => {
-    document.body.classList.remove("instant");
-  });
-
-  requestAnimationFrame(() => {
-    setupDropdowns();
-    requestAnimationFrame(() => {
-      document.body.classList.add("js-ready");
-    });
-  });
-});
 
 function setupSidebarToggle() {
   const toggleButton = document.querySelector(".ui-menu-toggle-button");
@@ -248,34 +239,41 @@ function setupSidebarToggle() {
   });
 }
 
+function setupSidebarCloseOnOutsideClick() {
+  const sidebar = document.querySelector(".ui-sidebar-wrapper");
+  const toggleButton = document.querySelector(".ui-menu-toggle-button");
+
+  document.addEventListener("click", (event) => {
+    const isSidebarOpen = document.body.classList.contains("sidebar-visible");
+
+    if (
+      isSidebarOpen &&
+      sidebar &&
+      toggleButton &&
+      !sidebar.contains(event.target) &&
+      !toggleButton.contains(event.target)
+    ) {
+      document.body.classList.remove("sidebar-visible");
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  setupRiveCanvases();
+  setupKaTeX();
   setupSidebarToggle();
-  console.log("🟢 setupSidebarToggle kjører");
-  const testButton = document.querySelector(".ui-menu-toggle-button");
-  if (!testButton) {
-    console.warn("❌ .ui-menu-toggle-button ikke funnet i DOM");
-  } else {
-    console.log("✅ .ui-menu-toggle-button funnet");
-  }
-  function setupSidebarCloseOnOutsideClick() {
-    document.addEventListener("click", (event) => {
-      const isSidebarOpen = document.body.classList.contains("sidebar-visible");
-      const sidebar = document.querySelector(".ui-sidebar-wrapper");
-      const toggleButton = document.querySelector(".ui-menu-toggle-button");
-
-      if (
-        isSidebarOpen &&
-        !sidebar.contains(event.target) &&
-        !toggleButton.contains(event.target)
-      ) {
-        document.body.classList.remove("sidebar-visible");
-      }
-    });
-  }
-
   setupSidebarCloseOnOutsideClick();
+  preloadDropdownState();
+  setupDropdowns();
+  document.body.classList.add("js-ready");
+  sendHeight();
 
-  // If sidebar is already open on load, disable transition once, but only on mobile screens
+  if (window.self !== window.top) {
+    document.documentElement.classList.add("no-scroll");
+  } else {
+    document.documentElement.classList.remove("no-scroll");
+  }
+
   if (
     document.body.classList.contains("sidebar-visible") &&
     window.matchMedia("(max-width: 991px)").matches
