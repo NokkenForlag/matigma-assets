@@ -1,15 +1,4 @@
-// === Pre-initialize dropdowns early to avoid layout shift ===
-document.querySelectorAll(".ui-dropdown-wrapper").forEach((wrapper, index) => {
-  const stored = localStorage.getItem(`dropdown-open-${index}`);
-  const isOpen = stored === null ? true : stored === "true";
-  const content = wrapper.querySelector(".ui-dropdown-content");
-
-  if (isOpen && content) {
-    wrapper.classList.add("open");
-    content.style.transform = "scaleY(1)";
-    content.style.opacity = "1";
-  }
-});
+// scripts/index.mjs
 // scripts/index.mjs
 
 import Rive from "https://cdn.jsdelivr.net/npm/@rive-app/canvas@2.7.1/+esm";
@@ -198,6 +187,19 @@ function setupDropdowns() {
 
 // Add js-ready class after all DOMContentLoaded scripts and setupDropdowns after one animation frame
 document.addEventListener("DOMContentLoaded", () => {
+  // Pre-initialize dropdowns AFTER DOM is ready
+  document.querySelectorAll(".ui-dropdown-wrapper").forEach((wrapper, index) => {
+    const stored = localStorage.getItem(`dropdown-open-${index}`);
+    const isOpen = stored === null ? true : stored === "true";
+    const content = wrapper.querySelector(".ui-dropdown-content");
+
+    if (isOpen && content) {
+      wrapper.classList.add("open");
+      content.style.transform = "scaleY(1)";
+      content.style.opacity = "1";
+    }
+  });
+
   requestAnimationFrame(() => {
     setupDropdowns();
     requestAnimationFrame(() => {
