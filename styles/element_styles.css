@@ -5,18 +5,17 @@
   }
 
   .ui-dropdown-content {
-    visibility: hidden;
-    max-height: 0;
+    display: block;
+    transform: scaleY(0);
+    transform-origin: top;
     opacity: 0;
     overflow: hidden;
-    transition:
-      max-height 0.2s ease,
-      opacity 0.2s ease,
-      visibility 0s linear 0.2s;
+    height: auto;
+    transition: transform 0.2s ease, opacity 0.2s ease;
   }
 
   .ui-dropdown-wrapper.open .ui-dropdown-content {
-    visibility: visible;
+    transform: scaleY(1);
     opacity: 1;
   }
 
