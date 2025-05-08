@@ -150,6 +150,3 @@ html.no-scroll, body.no-scroll {
       left: 1rem;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
     }
-.ui-dropdown-wrapper.instant .ui-dropdown-content {
-  transition: none !important;
-}
