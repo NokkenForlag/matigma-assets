@@ -1,0 +1,87 @@
+  body:not(.js-ready) .ui-dropdown-wrapper {
+    opacity: 0;
+    pointer-events: none;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .ui-dropdown-content {
+    visibility: hidden;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.2s ease,
+      opacity 0.2s ease,
+      visibility 0s linear 0.2s;
+  }
+
+  .ui-dropdown-wrapper.open .ui-dropdown-content {
+    visibility: visible;
+    max-height: 1000px;
+    opacity: 1;
+    transition:
+      max-height 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  .ui-dropdown-button {
+    cursor: pointer;
+  }
+
+  .ui-dropdown-button-icon {
+    opacity: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .ui-dropdown-wrapper:hover .ui-dropdown-button-icon {
+    opacity: 1;
+  }
+
+  .ui-dropdown-wrapper.open .ui-dropdown-button-icon {
+    transform: rotate(90deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ui-dropdown-content,
+    .ui-dropdown-button-icon {
+      transition: none !important;
+    }
+  }
+  @media screen and (max-width: 991px) {
+    .ui-body-content-wrapper {
+      display: flex;
+      flex-direction: row;
+      transition: transform 0.3s ease;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    .ui-sidebar-wrapper {
+      width: 20rem;
+      flex-shrink: 0;
+      margin-left: -20rem; /* samme verdi som min-width for å skyve den helt ut */
+      transition: none;
+      background: #fff;
+      height: 100vh;
+      box-shadow: 4px 0 12px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    .ui-main-content-wrapper {
+      flex-grow: 1;
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+    }
+
+    body.js-ready.sidebar-visible .ui-sidebar-wrapper {
+      margin-left: 0;
+      transition: margin 0.3s ease;
+    }
+
+    body.sidebar-visible .ui-body-content-wrapper {
+      transform: none;
+    }
+
+}
