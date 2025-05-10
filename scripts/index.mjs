@@ -204,6 +204,22 @@ function setupDropdowns() {
         }
       }
     });
+
+    if (wrapper.classList.contains("ui-dropdown-closable")) {
+      document.addEventListener("click", (event) => {
+        const clickedInside = wrapper.contains(event.target);
+        const clickedToggle = toggle.contains(event.target);
+
+        if (!clickedInside && !clickedToggle && wrapper.classList.contains("open")) {
+          wrapper.classList.remove("open");
+          content.style.maxHeight = "0px";
+          content.style.opacity = "0";
+          if (canUseStorage) {
+            localStorage.setItem(storageKey, "false");
+          }
+        }
+      });
+    }
   });
 
   // Update maxHeight and opacity of open dropdowns on window resize
