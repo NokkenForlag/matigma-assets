@@ -141,7 +141,10 @@ function preloadDropdownState() {
   document.body.classList.add("instant");
   document.querySelectorAll(".ui-dropdown-wrapper").forEach((wrapper, index) => {
     const stored = canUseStorage ? localStorage.getItem(`dropdown-open-${index}`) : null;
-    const isOpen = stored === null ? true : stored === "true";
+    let isOpen = stored === null ? true : stored === "true";
+    if (wrapper.classList.contains("closed-by-default")) {
+      isOpen = false;
+    }
     const content = wrapper.querySelector(".ui-dropdown-content");
     if (isOpen && content) {
       wrapper.classList.add("open");
