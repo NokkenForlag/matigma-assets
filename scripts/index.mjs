@@ -277,6 +277,35 @@ function setupSidebarCloseOnOutsideClick() {
   });
 }
 
+function setupCollectionItemToggles() {
+  const items = document.querySelectorAll(".ui-collection-item");
+
+  items.forEach((item) => {
+    const trigger = item.querySelector(".ui-collection-item-content-div");
+    const panel = item.querySelector(".ui-collection-item-right");
+
+    if (!trigger || !panel) return;
+
+    trigger.addEventListener("click", () => {
+      const isOpen = item.classList.contains("open");
+
+      // Close all other open items
+      document.querySelectorAll(".ui-collection-item.open").forEach((openItem) => {
+        if (openItem !== item) {
+          openItem.classList.remove("open");
+        }
+      });
+
+      // Toggle current item
+      if (!isOpen) {
+        item.classList.add("open");
+      } else {
+        item.classList.remove("open");
+      }
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   setupRiveCanvases();
   setupKaTeX();
@@ -284,6 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupSidebarCloseOnOutsideClick();
   preloadDropdownState();
   setupDropdowns();
+  setupCollectionItemToggles();
   document.body.classList.add("js-ready");
   sendHeight();
 
