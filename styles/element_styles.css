@@ -109,3 +109,14 @@ body.instant .ui-dropdown-content {
   pointer-events: auto;
   transition-delay: 0s;
 }
+
+.ui-collection-item-content-div {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.ui-collection-item-right {
+  position: relative;
+  z-index: 0;
+}
