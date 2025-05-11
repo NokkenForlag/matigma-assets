@@ -296,11 +296,16 @@ function setupCollectionItemToggles() {
         }
       });
 
-      // Toggle current item with delay when opening
+      // Toggle current item with delay only if another is already open
       if (!isOpen) {
-        setTimeout(() => {
+        const anotherOpen = document.querySelector(".ui-collection-item.open");
+        if (anotherOpen && anotherOpen !== item) {
+          setTimeout(() => {
+            item.classList.add("open");
+          }, 500);
+        } else {
           item.classList.add("open");
-        }, 500);
+        }
       } else {
         item.classList.remove("open");
       }
