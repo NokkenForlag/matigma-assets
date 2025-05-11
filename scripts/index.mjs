@@ -296,9 +296,11 @@ function setupCollectionItemToggles() {
         }
       });
 
-      // Toggle current item
+      // Toggle current item with delay when opening
       if (!isOpen) {
-        item.classList.add("open");
+        setTimeout(() => {
+          item.classList.add("open");
+        }, 500);
       } else {
         item.classList.remove("open");
       }
