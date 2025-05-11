@@ -12,7 +12,7 @@ html {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
   }
 
   .ui-dropdown-wrapper.open .ui-dropdown-content {
@@ -26,7 +26,7 @@ html {
 
   .ui-dropdown-button-icon {
     opacity: 0;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition: transform 0.4s ease, opacity 0.4s ease;
   }
 
   .ui-dropdown-wrapper:hover .ui-dropdown-button-icon {
@@ -47,7 +47,7 @@ html {
     .ui-body-content-wrapper {
       display: flex;
       flex-direction: row;
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease;
       width: 100%;
       max-width: 100%;
       overflow-x: hidden;
@@ -73,7 +73,7 @@ html {
 
     body.js-ready.sidebar-visible .ui-sidebar-wrapper {
       margin-left: 0;
-      transition: margin 0.3s ease;
+      transition: margin 0.4s ease;
     }
 
     body.sidebar-visible .ui-body-content-wrapper {
@@ -92,9 +92,9 @@ body.instant .ui-dropdown-content {
   transform: translateY(1rem);
   overflow: hidden;
   transition:
-    opacity 0.3s ease,
-    max-height 0.3s ease,
-    transform 0.3s ease;
+    opacity 0.4s ease,
+    max-height 0.4s ease,
+    transform 0.4s ease;
 }
 
 .ui-collection-item.open .ui-collection-item-right {
