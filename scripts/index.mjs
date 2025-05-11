@@ -286,22 +286,36 @@ function setupCollectionItemToggles() {
 
     if (!trigger || !panel) return;
 
+    // Hover state for .ui-highlight
+    trigger.addEventListener("mouseenter", () => {
+      item.classList.add("ui-highlight");
+    });
+    trigger.addEventListener("mouseleave", () => {
+      if (!item.classList.contains("open")) {
+        item.classList.remove("ui-highlight");
+      }
+    });
+
     trigger.addEventListener("click", () => {
       const isOpen = item.classList.contains("open");
       const currentlyOpen = document.querySelector(".ui-collection-item.open");
 
       if (isOpen) {
         item.classList.remove("open");
+        item.classList.remove("ui-highlight");
         return;
       }
 
       if (currentlyOpen && currentlyOpen !== item) {
         currentlyOpen.classList.remove("open");
+        currentlyOpen.classList.remove("ui-highlight");
         setTimeout(() => {
           item.classList.add("open");
+          item.classList.add("ui-highlight");
         }, 600); // match the duration of fade out
       } else {
         item.classList.add("open");
+        item.classList.add("ui-highlight");
       }
     });
   });
