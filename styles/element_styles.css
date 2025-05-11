@@ -95,10 +95,18 @@ body.instant .ui-dropdown-content {
     opacity 0.4s ease,
     max-height 0.4s ease,
     transform 0.4s ease;
+  will-change: opacity, transform, max-height;
 }
 
 .ui-collection-item.open .ui-collection-item-right {
   opacity: 1;
-  max-height: 1000px; /* stort nok for alt innhold */
+  max-height: 1000px;
   transform: translateY(0);
+}
+.ui-collection-item:hover {
+  background-color: var(--highlight-bg, #f3f4f6); /* optional fallback */
+}
+
+.ui-collection-item.ui-highlight {
+  background-color: var(--highlight-bg, #f3f4f6);
 }
