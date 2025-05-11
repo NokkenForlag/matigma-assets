@@ -12,15 +12,12 @@ html {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    visibility: hidden;
-    will-change: opacity, max-height;
     transition: max-height 0.4s ease, opacity 0.4s ease;
   }
 
   .ui-dropdown-wrapper.open .ui-dropdown-content {
-    max-height: none;
+    max-height: 1000px;
     opacity: 1;
-    visibility: visible;
   }
 
   .ui-dropdown-button {
@@ -94,18 +91,14 @@ body.instant .ui-dropdown-content {
   max-height: 0;
   transform: translateY(1rem);
   overflow: hidden;
-  will-change: opacity, transform, max-height;
   transition:
-    opacity 0.6s ease-out,
-    transform 0.5s ease-out,
-    max-height 0.5s ease-out;
-  pointer-events: none;
+    opacity 0.4s ease,
+    max-height 0.4s ease,
+    transform 0.4s ease;
 }
 
 .ui-collection-item.open .ui-collection-item-right {
   opacity: 1;
-  max-height: 1000px;
+  max-height: 1000px; /* stort nok for alt innhold */
   transform: translateY(0);
-  pointer-events: auto;
-  transition-delay: 0s;
 }
