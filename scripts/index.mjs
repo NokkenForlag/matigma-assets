@@ -288,26 +288,20 @@ function setupCollectionItemToggles() {
 
     trigger.addEventListener("click", () => {
       const isOpen = item.classList.contains("open");
+      const currentlyOpen = document.querySelector(".ui-collection-item.open");
 
-      // Close all other open items
-      document.querySelectorAll(".ui-collection-item.open").forEach((openItem) => {
-        if (openItem !== item) {
-          openItem.classList.remove("open");
-        }
-      });
-
-      // Toggle current item with delay only if another is already open
-      if (!isOpen) {
-        const anotherOpen = document.querySelector(".ui-collection-item.open");
-        if (anotherOpen && anotherOpen !== item) {
-          setTimeout(() => {
-            item.classList.add("open");
-          }, 500);
-        } else {
-          item.classList.add("open");
-        }
-      } else {
+      if (isOpen) {
         item.classList.remove("open");
+        return;
+      }
+
+      if (currentlyOpen && currentlyOpen !== item) {
+        currentlyOpen.classList.remove("open");
+        setTimeout(() => {
+          item.classList.add("open");
+        }, 600); // match the duration of fade out
+      } else {
+        item.classList.add("open");
       }
     });
   });
