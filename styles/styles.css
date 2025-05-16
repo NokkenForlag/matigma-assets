@@ -1,9 +1,17 @@
+@font-face {
+  font-family: 'STIX Two Math';
+  src: url('../fonts/STIXTwoMath.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html, body {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'STIX Two Math', 'Manrope', serif;
   font-weight: 400;
   line-height: 1.9rem;
   font-size: 1rem;
-  color: var(--text-color, #404040);
+  background-color: #DAD8CF;
+  color: #232323;
   margin: 0;
   padding: 0;
   overflow: auto;
@@ -27,7 +35,7 @@ html.no-scroll, body.no-scroll {
       font-size: 1rem;
       position: relative;
       /* border-left: 4px solid var(--border-color, #ccc); */
-      background-color: var(--bg-color, #f5f5f5);
+      background-color: #F0EFEC;
       color: var(--text-color, #404040);
     }
   
@@ -46,93 +54,93 @@ html.no-scroll, body.no-scroll {
     }
 
     .Math-Theorem-Block {
-      --bg-color: #e8f0fe;
+      --bg-color: #F0EFEC;
       --border-color: #2962ff;
       --label-bg: #2962ff;
     }
 
     .Math-Lemma-Block {
-      --bg-color: #ede7f6;
+      --bg-color: #F0EFEC;
       --border-color: #673ab7;
       --label-bg: #673ab7;
     }
 
     .Math-Corollary-Block {
-      --bg-color: #eaf6fb;
+      --bg-color: #F0EFEC;
       --border-color: #90c8e0;
       --label-bg: #64a9cc;
     }
 
     .Math-Formula-Block {
-      --bg-color: #f0f4c3;
+      --bg-color: #F0EFEC;
       --border-color: #c0ca33;
       --label-bg: #c0ca33;
     }
   
     .Math-Definition-Block {
-      --bg-color: #E9F0FE;
+      --bg-color: #F0EFEC;
       --border-color: #146EF4;
       --label-bg: #146EF4;
     }
   
     .Math-Example-Block {
-      --bg-color: #FFF7D7;
+      --bg-color: #F0EFEC;
       --border-color: #8B6D00;
       --label-bg: #8B6D00;
     }
   
     .Math-Task-Block {
-      --bg-color: #ffefcd;
+      --bg-color: #F0EFEC;
       --border-color: #efc263;
       --label-bg: #ffc107;
     }
   
     .Math-Note-Block {
-      --bg-color: #fec494;
+      --bg-color: #F0EFEC;
       --border-color: #999;
       --label-bg: #ff9800;
     }
   
     .Math-Reflection-Block {
-      --bg-color: #f3e5f5;
+      --bg-color: #F0EFEC;
       --border-color: #9c27b0;
       --label-bg: #9c27b0;
     }
   
     .Math-CommonError-Block {
-      --bg-color: #fff3f3;
+      --bg-color: #F0EFEC;
       --border-color: #f44336;
       --label-bg: #f44336;
     }
   
     .Math-Alert-Block {
-      --bg-color: #fff0e6;
+      --bg-color: #F0EFEC;
       --border-color: #ff5722;
       --label-bg: #ff5722;
       font-weight: bold;
     }
   
     .Math-Context-Block {
-      --bg-color: #e7f5f9;
+      --bg-color: #F0EFEC;
       --border-color: #00acc1;
       --label-bg: #00acc1;
     }
   
     .Math-Proof-Block {
-      --bg-color: #f3f7ec;
+      --bg-color: #F0EFEC;
       --border-color: #558b2f;
       --label-bg: #558b2f;
       font-family: 'Courier New', monospace;
     }
   
     .Math-Explore-Block {
-      --bg-color: #e8f5e9;
+      --bg-color: #F0EFEC;
       --border-color: #66bb6a;
       --label-bg: #66bb6a;
     }
   
     .Math-Quote-Block {
-      --bg-color: #f0f4c3;
+      --bg-color: #F0EFEC;
       --border-color: #c0ca33;
       --label-bg: #c0ca33;
       font-style: italic;
