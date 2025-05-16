@@ -117,7 +117,7 @@ function sendHeight() {
     // Send the height of the document to the parent page
     window.parent.postMessage({
       type: 'setHeight',
-      height: document.documentElement.scrollHeight
+      height: document.documentElement.scrollHeight + 8
     }, '*');
   }
 }
