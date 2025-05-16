@@ -345,4 +345,6 @@ html.no-scroll, body.no-scroll {
   background-color: #E8E6DD;
   color: #232323;
   border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  margin: 1.25rem 0;
 }
