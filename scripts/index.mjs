@@ -332,10 +332,21 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("js-ready");
   sendHeight();
 
-  if (window.self !== window.top) {
+  const isEmbedded = window.self !== window.top;
+  const referrer = document.referrer || "";
+
+  console.log("🔍 isEmbedded:", isEmbedded);
+  console.log("🔍 referrer:", referrer);
+
+  const isWebflowIframe =
+    isEmbedded && (referrer.includes("webflow.io") || referrer.includes("webflow-preview"));
+
+  if (isWebflowIframe) {
     document.documentElement.classList.add("no-scroll");
+    console.log("🧭 Scrolling disabled (Webflow iframe)");
   } else {
     document.documentElement.classList.remove("no-scroll");
+    console.log("✅ Scrolling allowed");
   }
 
   if (
