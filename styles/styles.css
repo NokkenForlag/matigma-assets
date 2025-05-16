@@ -86,13 +86,16 @@ html.no-scroll, body.no-scroll {
       padding: 1rem;
       padding-left: 2rem;
       padding-top: 4rem;
-      border-radius: 4px;
       margin: 1.5rem 0;
       font-size: 1rem;
       position: relative;
       /* border-left: 4px solid var(--border-color, #ccc); */
       background-color: #F0EFEC;
       color: var(--text-color, #404040);
+    }
+
+    .Math-Rounded {
+      border-radius: 1rem;
     }
   
     .Math-Block::before {
