@@ -341,3 +341,8 @@ html.no-scroll, body.no-scroll {
   margin: 0 auto;
   padding: 1rem;
 }
+.Math-Block.Math-Rounded.Math-IntroBlock {
+  background-color: #E8E6DD;
+  color: #232323;
+  border-radius: 1rem;
+}
