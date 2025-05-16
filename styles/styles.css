@@ -61,6 +61,51 @@
   font-style: italic;
 }
 
+.Math-BlockBase {
+  padding: 1rem;
+  padding-left: 2rem;
+  padding-top: 4rem;
+  margin: 1.5rem 0;
+  font-size: 1rem;
+  position: relative;
+}
+
+.Math-Block {
+  padding: 1rem;
+  padding-left: 2rem;
+  padding-top: 4rem;
+  margin: 1.5rem 0;
+  font-size: 1rem;
+  position: relative;
+  border-radius: 1rem;
+}
+
+.Math-Rounded {
+  border-radius: 1rem;
+}
+
+.Math-Block.Math-Rounded {
+  --border-color: #232323;
+  --label-bg: #232323;
+  background-color: #F0EFEC;
+  color: #232323;
+  border-radius: 1rem;
+}
+
+.Math-Block.Math-Rounded::before {
+  content: attr(data-label);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: var(--label-bg, #333);
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
 html, body {
   font-family: 'STIX Two Math', 'Manrope', serif;
   font-weight: 400;
@@ -69,7 +114,7 @@ html, body {
   background-color: #DAD8CF;
   color: #232323;
   margin: 0;
-  padding: 0;
+  padding: 1rem;
   overflow: auto;
 }
 
@@ -82,133 +127,10 @@ html.no-scroll, body.no-scroll {
     width: 100%;
   }
   
-    .Math-Block {
-      padding: 1rem;
-      padding-left: 2rem;
-      padding-top: 4rem;
-      margin: 1.5rem 0;
-      font-size: 1rem;
-      position: relative;
-      /* border-left: 4px solid var(--border-color, #ccc); */
-      background-color: #F0EFEC;
-      color: var(--text-color, #404040);
-    }
-
-    .Math-Rounded {
-      border-radius: 1rem;
-    }
-  
-    .Math-Block::before {
-      content: attr(data-label);
-      font-size: 0.9rem;
-      font-weight: bold;
-      color: #ffffff;
-      background-color: var(--label-bg, #333);
-      padding: 4px 8px;
-      border-radius: 4px;
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    }
-
-    .Math-Theorem-Block {
-      --bg-color: #F0EFEC;
-      --border-color: #2962ff;
-      --label-bg: #2962ff;
-    }
-
-    .Math-Lemma-Block {
-      --bg-color: #F0EFEC;
-      --border-color: #673ab7;
-      --label-bg: #673ab7;
-    }
-
-    .Math-Corollary-Block {
-      --bg-color: #F0EFEC;
-      --border-color: #90c8e0;
-      --label-bg: #64a9cc;
-    }
-
-    .Math-Formula-Block {
-      --bg-color: #F0EFEC;
-      --border-color: #c0ca33;
-      --label-bg: #c0ca33;
-    }
-  
-    .Math-Definition-Block {
-      --bg-color: #F0EFEC;
-      --border-color: #146EF4;
-      --label-bg: #146EF4;
-    }
-  
-    .Math-Example-Block {
-      --bg-color: #F0EFEC;
-      --border-color: #8B6D00;
-      --label-bg: #8B6D00;
-    }
-  
-    .Math-Task-Block {
-      --bg-color: #F0EFEC;
-      --border-color: #efc263;
-      --label-bg: #ffc107;
-    }
-  
-    .Math-Note-Block {
-      --bg-color: #F0EFEC;
-      --border-color: #999;
-      --label-bg: #ff9800;
-    }
-  
-    .Math-Reflection-Block {
-      --bg-color: #F0EFEC;
-      --border-color: #9c27b0;
-      --label-bg: #9c27b0;
-    }
-  
-    .Math-CommonError-Block {
-      --bg-color: #F0EFEC;
-      --border-color: #f44336;
-      --label-bg: #f44336;
-    }
-  
-    .Math-Alert-Block {
-      --bg-color: #F0EFEC;
-      --border-color: #ff5722;
-      --label-bg: #ff5722;
-      font-weight: bold;
-    }
-  
-    .Math-Context-Block {
-      --bg-color: #F0EFEC;
-      --border-color: #00acc1;
-      --label-bg: #00acc1;
-    }
-  
-    .Math-Proof-Block {
-      --bg-color: #F0EFEC;
-      --border-color: #558b2f;
-      --label-bg: #558b2f;
-      font-family: 'Courier New', monospace;
-    }
-  
-    .Math-Explore-Block {
-      --bg-color: #F0EFEC;
-      --border-color: #66bb6a;
-      --label-bg: #66bb6a;
-    }
-  
-    .Math-Quote-Block {
-      --bg-color: #F0EFEC;
-      --border-color: #c0ca33;
-      --label-bg: #c0ca33;
-      font-style: italic;
-    }
-
     .math-sublabel {
       font-size: 0.7rem;
       font-weight: 500;
-      color: #fff;
+      color: #FFFFFF;
       background-color: var(--label-bg, #333);
       border-radius: 4px;
       padding: 2px 8px;
