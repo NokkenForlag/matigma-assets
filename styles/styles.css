@@ -92,8 +92,204 @@
   border-radius: 1rem;
 }
 
-.Math-Block.Math-Rounded::before {
-  content: attr(data-label);
+.Math-Block.Math-Rounded.Math-Definition-Block::before {
+  content: "🧩 " attr(data-label);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: var(--label-bg, #333);
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.Math-Block.Math-Rounded.Math-Example-Block::before {
+  content: "🧪 " attr(data-label);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: var(--label-bg, #333);
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.Math-Block.Math-Rounded.Math-Theorem-Block::before {
+  content: "📐 " attr(data-label);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: var(--label-bg, #333);
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.Math-Block.Math-Rounded.Math-Lemma-Block::before {
+  content: "📏 " attr(data-label);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: var(--label-bg, #333);
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.Math-Block.Math-Rounded.Math-Corollary-Block::before {
+  content: "🔁 " attr(data-label);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: var(--label-bg, #333);
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.Math-Block.Math-Rounded.Math-Formula-Block::before {
+  content: "🔣 " attr(data-label);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: var(--label-bg, #333);
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.Math-Block.Math-Rounded.Math-Note-Block::before {
+  content: "🗒️ " attr(data-label);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: var(--label-bg, #333);
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.Math-Block.Math-Rounded.Math-Task-Block::before {
+  content: "🎯 " attr(data-label);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: var(--label-bg, #333);
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.Math-Block.Math-Rounded.Math-Reflection-Block::before {
+  content: "🪞 " attr(data-label);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: var(--label-bg, #333);
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.Math-Block.Math-Rounded.Math-CommonError-Block::before {
+  content: "❌ " attr(data-label);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: var(--label-bg, #333);
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.Math-Block.Math-Rounded.Math-Alert-Block::before {
+  content: "⚠️ " attr(data-label);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: var(--label-bg, #333);
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.Math-Block.Math-Rounded.Math-Context-Block::before {
+  content: "🌍 " attr(data-label);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: var(--label-bg, #333);
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.Math-Block.Math-Rounded.Math-Proof-Block::before {
+  content: "📜 " attr(data-label);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: var(--label-bg, #333);
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.Math-Block.Math-Rounded.Math-Explore-Block::before {
+  content: "🔎 " attr(data-label);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: var(--label-bg, #333);
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.Math-Block.Math-Rounded.Math-Quote-Block::before {
+  content: "💬 " attr(data-label);
   font-size: 0.9rem;
   font-weight: bold;
   color: #FFFFFF;
@@ -139,3 +335,9 @@ html.no-scroll, body.no-scroll {
       left: 1rem;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
     }
+/* Constrain content width and center it */
+.article-wrapper {
+  max-width: 65ch;
+  margin: 0 auto;
+  padding: 1rem;
+}
