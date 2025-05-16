@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="no">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-</head>
-  <title>Eksponentiell vekst og reduksjon</title>
-  <link rel="stylesheet" href="https://nokkenforlag.github.io/matigma-assets/styles/index.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Potenser og eksponentregler</title>
+
+  <!-- Ekstern CSS -->
+  <link rel="stylesheet" href="../styles/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- KaTeX CSS og JS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-</head>
+
+  <!-- Din JavaScript-modul -->
+  <script type="module" src="/scripts/index.mjs"></script>
 </head>
 <body>
-
   <h1>Eksponentiell vekst og reduksjon</h1>
 
   <p>Eksponentiell vekst og reduksjon beskriver situasjoner der en størrelse øker eller minker med en fast prosent per tidsenhet. Dette skiller seg fra lineær vekst, der endringen er konstant i absolutte tall.</p>
 
-  <div class="Math-Definition-Block Math-Rounded" data-label="Definisjon">
+  <div class="Math-Block Math-Definition-Block Math-Rounded" data-label="Definisjon">
     En størrelse vokser eller avtar eksponentielt når endringen er proporsjonal med verdien:
     $$ y = a \cdot b^x $$
     hvor:
@@ -32,32 +36,32 @@
   <h2>Vekstfaktor</h2>
   <p>Vekstfaktoren \( b \) bestemmes ut fra prosentvis økning eller reduksjon:</p>
 
-  <div class="Math-Formula-Block Math-Rounded" data-label="Formel">
+  <div class="Math-Block Math-Formula-Block Math-Rounded" data-label="Formel">
     Ved vekst: $$ b = 1 + \frac{p}{100} $$
     Ved reduksjon: $$ b = 1 - \frac{p}{100} $$
   </div>
 
   <h2>Eksempler</h2>
 
-  <div class="Math-Example-Block Math-Rounded" data-label="Eksempel 1">
+  <div class="Math-Block Math-Example-Block Math-Rounded" data-label="Eksempel 1">
     <p>En sparekonto inneholder 5000 kr. Renten er 3 % per år. Hvor mye penger er på kontoen etter 5 år?</p>
     $$ y = 5000 \cdot (1 + 0.03)^5 = 5000 \cdot 1.159274 = 5796.37 \text{ kr} $$
   </div>
 
-  <div class="Math-Example-Block Math-Rounded" data-label="Eksempel 2">
+  <div class="Math-Block Math-Example-Block Math-Rounded" data-label="Eksempel 2">
     <p>En bil mister 20 % av verdien sin hvert år. Startverdi er 400 000 kr. Hvor mye er bilen verdt etter 3 år?</p>
     $$ y = 400\,000 \cdot (1 - 0.20)^3 = 400\,000 \cdot 0.512 = 204\,800 \text{ kr} $$
   </div>
 
   <h2>Generell modell med tid som variabel</h2>
 
-  <div class="Math-Formula-Block Math-Rounded" data-label="Formel">
+  <div class="Math-Block Math-Formula-Block Math-Rounded" data-label="Formel">
     $$ y(t) = a \cdot b^t $$
     Her er \( t \) tiden i år, måneder eller annen passende enhet.
   </div>
 
   <h2>Logaritmisk løsning</h2>
-  <div class="Math-Definition-Block Math-Rounded" data-label="Omvendt problem">
+  <div class="Math-Block Math-Definition-Block Math-Rounded" data-label="Omvendt problem">
     Når vi kjenner sluttsummen og ønsker å finne tiden:
     $$ t = \frac{\log(y) - \log(a)}{\log(b)} $$
   </div>
