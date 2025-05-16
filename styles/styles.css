@@ -360,3 +360,16 @@ html.no-scroll, body.no-scroll {
   white-space: normal;
   line-height: 1.6;
 }
+
+/* Improve KaTeX formula wrapping behavior */
+.katex-display {
+  display: block;
+  overflow-x: auto;
+  padding: 0.25rem 0;
+}
+
+.katex-display > .katex {
+  white-space: normal !important;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
