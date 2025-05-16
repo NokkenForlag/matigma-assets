@@ -314,6 +314,10 @@ html, body {
   overflow: auto;
 }
 
+html {
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+}
+
 html.no-scroll, body.no-scroll {
   overflow: hidden;
 }
@@ -347,4 +351,12 @@ html.no-scroll, body.no-scroll {
   border-radius: 1rem;
   padding: 1rem 1.5rem;
   margin: 1.25rem 0;
+}
+
+.katex-display {
+  overflow-wrap: break-word;
+  overflow-x: auto;
+  word-break: break-word;
+  white-space: normal;
+  line-height: 1.6;
 }
