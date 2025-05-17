@@ -18,8 +18,8 @@
 
  <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 
- <body style="padding: 0.25rem;">
-
+ <body>
+ 
   <!-- SLIDE 1: INTRO -->
   <div class="math-slide active" data-slide="1">
     <div class="slide-content">
@@ -79,6 +79,24 @@
       </p>
       <p>
         Eksponentiell vekst og reduksjon brukes også i mange fagfelt: innen biologi til å beskrive populasjoner, i finans til å modellere investeringer, og i informatikk for å forstå kompleksitetsvekst i algoritmer.
+      </p>
+      <p>
+        Dette er grunnen til at forståelse av eksponentiell vekst er viktig: små prosentendringer får stor betydning over tid, og brukes blant annet til å forutsi virusspredning, kapitalvekst, og utvikling av teknologi.
+      </p>
+      <p>
+        Et interessant poeng er at mange undervurderer hvor raskt eksponentielle prosesser går. For eksempel vil en dobling hvert år gi en 32-dobling på bare fem år.
+      </p>
+      <p>
+        I matematiske modeller er det derfor ofte viktig å tolke eksponentens rolle nøye og forstå hvordan den interagerer med vekstfaktoren.
+      </p>
+      <p>
+        For å illustrere viktigheten av vekstfaktorens verdi, kan vi se på flere scenarioer der små endringer i prosentvekst fører til betydelige forskjeller over tid. Dette er spesielt relevant i økonomi, biologi og teknologi, hvor langsiktige prognoser avhenger av presis modellering av eksponentielle prosesser.
+      </p>
+      <p>
+        Videre kan vi observere at vekstfaktoren ikke bare påvirker størrelsen på endringen, men også formen på kurven. En vekstfaktor nær 1 gir en langsom og jevn endring, mens en vekstfaktor langt fra 1 gir en rask og dramatisk utvikling.
+      </p>
+      <p>
+        Når vi analyserer data med eksponentiell vekst eller reduksjon, er det derfor viktig å være oppmerksom på både vekstfaktoren og antall perioder for å kunne gjøre nøyaktige forutsigelser og beslutninger.
       </p>
     </div>
     <div class="scroll-indicator">↓</div>
@@ -193,11 +211,13 @@
     <div class="scroll-indicator">↓</div>
   </div>
 
-  <div class="slide-nav fixed-bottom">
-    <button id="prev-slide">←</button>
-    <button id="next-slide">→</button>
+  <div class="slide-ui">
+    <div class="slide-nav fixed-bottom">
+      <button id="prev-slide">←</button>
+      <button id="next-slide">→</button>
+    </div>
+    <div class="slide-progress"></div>
   </div>
-  <div class="slide-progress"></div>
 
   <script type="module" src="https://nokkenforlag.github.io/matigma-assets/scripts/index.mjs"></script>
 </body>
