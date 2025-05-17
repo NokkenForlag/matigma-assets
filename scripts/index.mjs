@@ -358,9 +358,64 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.remove("instant");
     });
   }
+
+  setupSlideNavigation();
 });
 
 // Fade in page once fully loaded
 window.addEventListener("load", () => {
   document.documentElement.classList.add("loaded");
 });
+
+function setupSlideNavigation() {
+  const slides = document.querySelectorAll(".math-slide");
+  const nextBtn = document.getElementById("next-slide");
+  const prevBtn = document.getElementById("prev-slide");
+
+  if (!slides.length || !nextBtn || !prevBtn) return;
+
+  let currentIndex = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
+    });
+  }
+
+  nextBtn.addEventListener("click", () => {
+    if (currentIndex < slides.length - 1) {
+      currentIndex++;
+      showSlide(currentIndex);
+    }
+  });
+
+  prevBtn.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      showSlide(currentIndex);
+    }
+  });
+
+  // Optional: swipe support for mobile
+  let touchStartX = null;
+
+  document.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  document.addEventListener("touchend", (e) => {
+    if (touchStartX === null) return;
+    const touchEndX = e.changedTouches[0].screenX;
+    const dx = touchStartX - touchEndX;
+
+    if (dx > 50 && currentIndex < slides.length - 1) {
+      currentIndex++;
+      showSlide(currentIndex);
+    } else if (dx < -50 && currentIndex > 0) {
+      currentIndex--;
+      showSlide(currentIndex);
+    }
+
+    touchStartX = null;
+  });
+}
