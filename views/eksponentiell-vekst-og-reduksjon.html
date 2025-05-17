@@ -18,151 +18,186 @@
 
  <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 
- <body class="article-wrapper">
-  <h1>Eksponentiell vekst og reduksjon</h1>
+ <body style="padding: 0.25rem;">
 
   <!-- SLIDE 1: INTRO -->
   <div class="math-slide active" data-slide="1">
-    <div class="Math-Block Math-IntroBlock Math-Rounded">
-      <p>
-        Eksponentiell vekst og reduksjon beskriver hvordan størrelser endrer seg når de øker eller minker med en fast prosent per tidsenhet. Dette er svært vanlig i virkeligheten – for eksempel ved sparing i bank, befolkningsvekst, verdifall på biler, og smittespredning. I motsetning til lineær vekst, hvor endringen er lik for hver periode, endres eksponentielle størrelser raskere eller saktere over tid.
-      </p>
+    <div class="slide-content">
+      <div class="Math-Block Math-IntroBlock Math-Rounded">
+        <p>
+          Eksponentiell vekst og reduksjon beskriver hvordan størrelser endrer seg når de øker eller minker med en fast prosent per tidsenhet. Dette er svært vanlig i virkeligheten – for eksempel ved sparing i bank, befolkningsvekst, verdifall på biler, og smittespredning. I motsetning til lineær vekst, hvor endringen er lik for hver periode, endres eksponentielle størrelser raskere eller saktere over tid.
+        </p>
+      </div>
     </div>
+    <div class="scroll-indicator">↓</div>
   </div>
 
   <!-- SLIDE 2: DEFINISJON -->
   <div class="math-slide" data-slide="2">
-    <div class="Math-Block Math-Definition-Block Math-Rounded" data-label="Definisjon">
-      <p>
-        En størrelse har <b>eksponentiell vekst</b> eller <b>reduksjon</b> når den endrer seg med en fast prosent per periode. Den generelle modellen er:
-      </p>
-      <div class="Math-Block Math-Formula-Block Math-Rounded" data-label="Formel">
-        $$ y = a \cdot b^n $$
+    <div class="slide-content">
+      <div class="Math-Block Math-Definition-Block Math-Rounded" data-label="Definisjon">
+        <p>
+          En størrelse har <b>eksponentiell vekst</b> eller <b>reduksjon</b> når den endrer seg med en fast prosent per periode. Den generelle modellen er:
+        </p>
+        <div class="Math-Block Math-Formula-Block Math-Rounded" data-label="Formel">
+          $$ y = a \cdot b^n $$
+        </div>
+        <ul>
+          <li>$a$: startverdi</li>
+          <li>$b$: vekstfaktor</li>
+          <li>$n$: antall perioder (for eksempel år, måneder, dager)</li>
+        </ul>
       </div>
-      <ul>
-        <li>\( a \): startverdi</li>
-        <li>\( b \): vekstfaktor</li>
-        <li>\( n \): antall perioder (for eksempel år, måneder, dager)</li>
-      </ul>
     </div>
+    <div class="scroll-indicator">↓</div>
   </div>
 
   <!-- SLIDE 3: VEKSTFAKTOR -->
   <div class="math-slide" data-slide="3">
-    <div class="Math-Block Math-Definition-Block Math-Rounded" data-label="Vekstfaktor">
-      <p>
-        Vekstfaktoren \( b \) bestemmer om vi har vekst eller reduksjon:
-      </p>
-      <ul>
-        <li>Hvis \( b &gt; 1 \): <b>Vekst</b> (verdien øker for hver periode)</li>
-        <li>Hvis \( 0 &lt; b &lt; 1 \): <b>Reduksjon</b> (verdien minker for hver periode)</li>
-      </ul>
-      <p>
-        Vekstfaktoren regnes ut fra prosentendringen \( p \):
-      </p>
-      <div class="Math-Block Math-Formula-Block Math-Rounded" data-label="Formel">
-        Ved vekst: &emsp; \( b = 1 + \frac{p}{100} \) <br>
-        Ved reduksjon: &emsp; \( b = 1 - \frac{p}{100} \)
+    <div class="slide-content">
+      <div class="Math-Block Math-Definition-Block Math-Rounded" data-label="Vekstfaktor">
+        <p>
+          Vekstfaktoren $b$ bestemmer om vi har vekst eller reduksjon:
+        </p>
+        <ul>
+          <li>Hvis $b &gt; 1$: <b>Vekst</b> (verdien øker for hver periode)</li>
+          <li>Hvis $0 &lt; b &lt; 1$: <b>Reduksjon</b> (verdien minker for hver periode)</li>
+        </ul>
+        <p>
+          Vekstfaktoren regnes ut fra prosentendringen $p$:
+        </p>
+        <div class="Math-Block Math-Formula-Block Math-Rounded" data-label="Formel">
+          Ved vekst: &emsp; $b = 1 + \frac{p}{100}$ <br>
+          Ved reduksjon: &emsp; $b = 1 - \frac{p}{100}$
+        </div>
       </div>
+      <p>
+        Jo høyere vekstfaktor, desto raskere øker verdien. For eksempel, en vekstfaktor på $1.05$ tilsvarer en økning på $5\%$ per periode. Etter bare noen få perioder blir forskjellen merkbar sammenlignet med en vekstfaktor på $1.02$.
+      </p>
+      <p>
+        Det er viktig å merke seg at selv små forskjeller i prosentvekst kan føre til store forskjeller i resultatet over tid. Dette skyldes den kumulative effekten av eksponentiell vekst – som gjør at kurven ikke stiger jevnt, men heller "skyter fart" etter hvert.
+      </p>
+      <p>
+        Eksponentiell vekst og reduksjon brukes også i mange fagfelt: innen biologi til å beskrive populasjoner, i finans til å modellere investeringer, og i informatikk for å forstå kompleksitetsvekst i algoritmer.
+      </p>
     </div>
+    <div class="scroll-indicator">↓</div>
   </div>
 
   <!-- SLIDE 4: EKSPONENTENS BETYDNING -->
   <div class="math-slide" data-slide="4">
-    <div class="Math-Block Math-Definition-Block Math-Rounded" data-label="Eksponentens betydning">
-      <p>
-        <b>Eksponenten</b> \( n \) angir hvor mange perioder (for eksempel år) vi ser på. 
+    <div class="slide-content">
+      <div class="Math-Block Math-Definition-Block Math-Rounded" data-label="Eksponentens betydning">
+        <p>
+          <b>Eksponenten</b> $n$ angir hvor mange perioder (for eksempel år) vi ser på.
+        </p>
         <ul>
-          <li>Positiv eksponent (\( n &gt; 0 \)): vi ser fremover i tid.</li>
-          <li>Negativ eksponent (\( n &lt; 0 \)): vi regner bakover i tid.</li>
+          <li>Positiv eksponent ($n &gt; 0$): vi ser fremover i tid.</li>
+          <li>Negativ eksponent ($n &lt; 0$): vi regner bakover i tid.</li>
         </ul>
-        Eksponentiell vekst gir en rask økning, mens eksponentiell reduksjon gir en rask nedgang.
-      </p>
+        <p>
+          Eksponentiell vekst gir en rask økning, mens eksponentiell reduksjon gir en rask nedgang.
+        </p>
+      </div>
     </div>
+    <div class="scroll-indicator">↓</div>
   </div>
 
   <!-- SLIDE 5: EKSEMPEL 1 -->
   <div class="math-slide" data-slide="5">
-    <h2>Eksempler på eksamensnære oppgaver</h2>
-    <div class="Math-Block Math-Example-Block Math-Rounded" data-label="Eksempel 1">
-      <p>
-        <b>Sparepenger:</b> Du setter inn 10&nbsp;000 kr i banken. Renten er 2,5&nbsp;% per år. Hvor mye penger har du etter 8 år?
-      </p>
-      <div class="Math-Block Math-Formula-Block Math-Rounded">
-        Startverdi: \( a = 10\,000 \) <br>
-        Vekstfaktor: \( b = 1 + \frac{2,5}{100} = 1,025 \) <br>
-        Antall år: \( n = 8 \) <br>
-        \[
-        y = 10\,000 \cdot 1{,}025^8 \approx 11\,093
-        \]
-        Etter 8 år har du ca. 11&nbsp;093 kr på kontoen.
+    <div class="slide-content">
+      <h2>Eksempler på eksamensnære oppgaver</h2>
+      <div class="Math-Block Math-Example-Block Math-Rounded" data-label="Eksempel 1">
+        <p>
+          <b>Sparepenger:</b> Du setter inn 10&nbsp;000 kr i banken. Renten er 2,5&nbsp;% per år. Hvor mye penger har du etter 8 år?
+        </p>
+        <div class="Math-Block Math-Formula-Block Math-Rounded">
+          Startverdi: $a = 10\,000$ <br>
+          Vekstfaktor: $b = 1 + \frac{2,5}{100} = 1,025$ <br>
+          Antall år: $n = 8$ <br>
+          \[
+          y = 10\,000 \cdot 1{,}025^8 \approx 11\,093
+          \]
+          Etter 8 år har du ca. 11&nbsp;093 kr på kontoen.
+        </div>
       </div>
     </div>
+    <div class="scroll-indicator">↓</div>
   </div>
 
   <!-- SLIDE 6: EKSEMPEL 2 -->
   <div class="math-slide" data-slide="6">
-    <div class="Math-Block Math-Example-Block Math-Rounded" data-label="Eksempel 2">
-      <p>
-        <b>Verdifall på bil:</b> En bil koster 350&nbsp;000 kr ny, og mister 18&nbsp;% av verdien hvert år. Hva er bilens verdi etter 4 år?
-      </p>
-      <div class="Math-Block Math-Formula-Block Math-Rounded">
-        Startverdi: \( a = 350\,000 \) <br>
-        Vekstfaktor: \( b = 1 - \frac{18}{100} = 0,82 \) <br>
-        Antall år: \( n = 4 \) <br>
-        \[
-        y = 350\,000 \cdot 0,82^4 \approx 159\,307
-        \]
-        Etter 4 år er bilen verdt ca. 159&nbsp;307 kr.
+    <div class="slide-content">
+      <div class="Math-Block Math-Example-Block Math-Rounded" data-label="Eksempel 2">
+        <p>
+          <b>Verdifall på bil:</b> En bil koster 350&nbsp;000 kr ny, og mister 18&nbsp;% av verdien hvert år. Hva er bilens verdi etter 4 år?
+        </p>
+        <div class="Math-Block Math-Formula-Block Math-Rounded">
+          Startverdi: $a = 350\,000$ <br>
+          Vekstfaktor: $b = 1 - \frac{18}{100} = 0,82$ <br>
+          Antall år: $n = 4$ <br>
+          \[
+          y = 350\,000 \cdot 0,82^4 \approx 159\,307
+          \]
+          Etter 4 år er bilen verdt ca. 159&nbsp;307 kr.
+        </div>
       </div>
     </div>
+    <div class="scroll-indicator">↓</div>
   </div>
 
   <!-- SLIDE 7: EKSEMPEL 3 -->
   <div class="math-slide" data-slide="7">
-    <div class="Math-Block Math-Example-Block Math-Rounded" data-label="Eksempel 3">
-      <p>
-        <b>Befolkningsvekst:</b> En by har 25&nbsp;000 innbyggere. Antall innbyggere øker med 1,6&nbsp;% per år. Hvor mange innbyggere er det etter 15 år?
-      </p>
-      <div class="Math-Block Math-Formula-Block Math-Rounded">
-        Startverdi: \( a = 25\,000 \) <br>
-        Vekstfaktor: \( b = 1 + \frac{1,6}{100} = 1,016 \) <br>
-        Antall år: \( n = 15 \) <br>
-        \[
-        y = 25\,000 \cdot 1{,}016^{15} \approx 29\,401
-        \]
-        Etter 15 år er det ca. 29&nbsp;400 innbyggere i byen.
+    <div class="slide-content">
+      <div class="Math-Block Math-Example-Block Math-Rounded" data-label="Eksempel 3">
+        <p>
+          <b>Befolkningsvekst:</b> En by har 25&nbsp;000 innbyggere. Antall innbyggere øker med 1,6&nbsp;% per år. Hvor mange innbyggere er det etter 15 år?
+        </p>
+        <div class="Math-Block Math-Formula-Block Math-Rounded">
+          Startverdi: $a = 25\,000$ <br>
+          Vekstfaktor: $b = 1 + \frac{1,6}{100} = 1,016$ <br>
+          Antall år: $n = 15$ <br>
+          \[
+          y = 25\,000 \cdot 1{,}016^{15} \approx 29\,401
+          \]
+          Etter 15 år er det ca. 29&nbsp;400 innbyggere i byen.
+        </div>
       </div>
     </div>
+    <div class="scroll-indicator">↓</div>
   </div>
 
   <!-- SLIDE 8: EKSEMPEL 4 -->
   <div class="math-slide" data-slide="8">
-    <div class="Math-Block Math-Example-Block Math-Rounded" data-label="Eksempel 4">
-      <p>
-        <b>Omvendt problem:</b> Hvor lang tid tar det før en investering på 5&nbsp;000 kr har vokst til 8&nbsp;000 kr med årlig rente på 4&nbsp;%?
-      </p>
-      <div class="Math-Block Math-Formula-Block Math-Rounded">
-        Her bruker vi formelen for eksponentiell vekst og løser for \( n \):
-        \[
-        8\,000 = 5\,000 \cdot 1{,}04^n
-        \]
-        \[
-        \frac{8\,000}{5\,000} = 1{,}6 = 1{,}04^n
-        \]
-        Ta logaritmen på begge sider:
-        \[
-        n = \frac{\log(1{,}6)}{\log(1{,}04)} \approx 12,7
-        \]
-        Det tar omtrent 12,7 år før investeringen har vokst til 8&nbsp;000 kr.
+    <div class="slide-content">
+      <div class="Math-Block Math-Example-Block Math-Rounded" data-label="Eksempel 4">
+        <p>
+          <b>Omvendt problem:</b> Hvor lang tid tar det før en investering på 5&nbsp;000 kr har vokst til 8&nbsp;000 kr med årlig rente på 4&nbsp;%?
+        </p>
+        <div class="Math-Block Math-Formula-Block Math-Rounded">
+          Her bruker vi formelen for eksponentiell vekst og løser for $n$:
+          \[
+          8\,000 = 5\,000 \cdot 1{,}04^n
+          \]
+          \[
+          \frac{8\,000}{5\,000} = 1{,}6 = 1{,}04^n
+          \]
+          Ta logaritmen på begge sider:
+          \[
+          n = \frac{\log(1{,}6)}{\log(1{,}04)} \approx 12,7
+          \]
+          Det tar omtrent 12,7 år før investeringen har vokst til 8&nbsp;000 kr.
+        </div>
       </div>
     </div>
+    <div class="scroll-indicator">↓</div>
   </div>
 
-  <div class="slide-nav">
+  <div class="slide-nav fixed-bottom">
     <button id="prev-slide">←</button>
     <button id="next-slide">→</button>
   </div>
+  <div class="slide-progress"></div>
 
   <script type="module" src="https://nokkenforlag.github.io/matigma-assets/scripts/index.mjs"></script>
 </body>

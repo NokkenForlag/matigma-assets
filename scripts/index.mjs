@@ -339,7 +339,9 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("🔍 referrer:", referrer);
 
   const isWebflowIframe =
-    isEmbedded && (referrer.includes("webflow.io") || referrer.includes("webflow-preview"));
+    isEmbedded &&
+    referrer &&
+    (referrer.includes("webflow.io") || referrer.includes("webflow-preview"));
 
   if (isWebflowIframe) {
     document.documentElement.classList.add("no-scroll");
@@ -376,10 +378,35 @@ function setupSlideNavigation() {
 
   let currentIndex = 0;
 
+  // Progress indicator support (optional)
+  function updateProgress(index) {
+    const progress = document.querySelector(".slide-progress");
+    if (progress) {
+      progress.textContent = `Side ${index + 1} av ${slides.length}`;
+    }
+  }
+
   function showSlide(index) {
     slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === index);
+      const isActive = i === index;
+      slide.classList.toggle("active", isActive);
+
+      if (isActive) {
+        const content = slide.querySelector(".slide-content");
+        const indicator = slide.querySelector(".scroll-indicator");
+
+        if (content) {
+          content.scrollTop = 0;
+
+          requestAnimationFrame(() => {
+            const hasOverflow = content.scrollHeight > content.clientHeight;
+            slide.classList.toggle("has-overflow", hasOverflow);
+          });
+        }
+      }
     });
+
+    updateProgress(index);
   }
 
   nextBtn.addEventListener("click", () => {
@@ -391,6 +418,17 @@ function setupSlideNavigation() {
 
   prevBtn.addEventListener("click", () => {
     if (currentIndex > 0) {
+      currentIndex--;
+      showSlide(currentIndex);
+    }
+  });
+
+  // Keyboard navigation
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight" && currentIndex < slides.length - 1) {
+      currentIndex++;
+      showSlide(currentIndex);
+    } else if (e.key === "ArrowLeft" && currentIndex > 0) {
       currentIndex--;
       showSlide(currentIndex);
     }
@@ -417,5 +455,14 @@ function setupSlideNavigation() {
     }
 
     touchStartX = null;
+  });
+
+  // Initialize progress and first slide
+  showSlide(currentIndex);
+  updateProgress(currentIndex);
+
+  // Update scroll indicator on window resize for accuracy/responsiveness
+  window.addEventListener("resize", () => {
+    showSlide(currentIndex);
   });
 }
