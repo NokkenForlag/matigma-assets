@@ -373,3 +373,37 @@ html.no-scroll, body.no-scroll {
   overflow-wrap: break-word;
   word-break: break-word;
 }
+
+
+/* --- Math Slide Navigation Styles --- */
+.math-slide {
+  display: none;
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.math-slide.active {
+  display: block;
+}
+
+.slide-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+
+.slide-nav button {
+  background-color: #232323;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.slide-nav button:hover {
+  background-color: #444;
+}
